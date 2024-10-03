@@ -1,16 +1,30 @@
 ---
 layout: page
 title: About me
-subtitle: Why you'd want to go on a date with me
+subtitle: Introduction 
 ---
 
-My name is Inigo Montoya. I have the following qualities:
+Hey i'm solgyu lee from Korea. 
+I'm a student at soongsil university in Seoul as sophomore. 
+My interest is in Multi-agent reinforcement learning especially in the robotics.
+For now, i'm studying about heterogeneous multi-robot systems. 
 
-- I rock a great mustache
-- I'm extremely loyal to my family
+### My skills  
 
-What else do you need?
+| Programming | Tools | 
+|-------------|-------|
+| Python      | Pytorch |
+| Rust         | ROS2| 
+|       | Unreal Engine5   
 
-### My story
+### Biography 
+2002.1.7 born in Seoul, Korea<br>
 
-To be honest, I'm having some trouble remembering right now, so why don't you just watch [my movie](https://en.wikipedia.org/wiki/The_Princess_Bride_%28film%29) and it will answer **all** your questions.
+2021 soongsil university entrance<br>
+
+2022 charge to the army<br>
+
+2023 discharge from the army <br>
+
+2024 return to uni as sophomore<br>
+
