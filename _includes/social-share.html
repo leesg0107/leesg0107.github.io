@@ -7,46 +7,38 @@
 {% endfor %}
 
 {% if any-share-links %}
-<section id = "social-share-section">
+<section id="social-share-section">
   <span class="sr-only">Share: </span>
 
-  {% if site.share-links-active.twitter %}
-    <a href="https://twitter.com/intent/tweet?text={{ page.title | strip_html | url_encode }}&url={{ page.url | absolute_url | url_encode }}"
-      class="btn btn-social-icon btn-twitter" title="Share on X (Twitter)">
-      <span class="fab fa-fw fa-x-twitter" aria-hidden="true"></span>
-      <span class="sr-only">X (Twitter)</span>
+  {% if site.share-links-active.youtube %}
+    <a href="https://www.youtube.com/user/{{ site.youtube_username }}"
+      class="btn btn-social-icon btn-youtube" title="YouTube Channel">
+      <span class="fab fa-fw fa-youtube" aria-hidden="true"></span>
+      <span class="sr-only">YouTube</span>
     </a>
   {% endif %}
 
-  {% if site.share-links-active.facebook %}
-    <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url | url_encode }}"
-      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
-      <span class="fab fa-fw fa-facebook" aria-hidden="true"></span>
-      <span class="sr-only">Facebook</span>
+  {% if site.share-links-active.github %}
+    <a href="https://github.com/{{ site.github_username }}"
+      class="btn btn-social-icon btn-github" title="GitHub Profile">
+      <span class="fab fa-fw fa-github" aria-hidden="true"></span>
+      <span class="sr-only">GitHub</span>
+    </a>
+  {% endif %}
+
+  {% if site.share-links-active.instagram %}
+    <a href="https://www.instagram.com/{{ site.instagram_username }}"
+      class="btn btn-social-icon btn-instagram" title="Instagram Profile">
+      <span class="fab fa-fw fa-instagram" aria-hidden="true"></span>
+      <span class="sr-only">Instagram</span>
     </a>
   {% endif %}
 
   {% if site.share-links-active.linkedin %}
-    <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ page.url | absolute_url | url_encode }}"
-      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+    <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}"
+      class="btn btn-social-icon btn-linkedin" title="LinkedIn Profile">
       <span class="fab fa-fw fa-linkedin" aria-hidden="true"></span>
       <span class="sr-only">LinkedIn</span>
-    </a>
-  {% endif %}
-
-  {% if site.share-links-active.vk %}
-    <a href="https://vk.com/share.php?url={{ page.url | absolute_url | url_encode }}"
-      class="btn btn-social-icon btn-vk" title="Share on VK">
-      <span class="fab fa-fw fa-vk" aria-hidden="true"></span>
-      <span class="sr-only">VK</span>
-    </a>
-  {% endif %}
-
-  {% if site.share-links-active.reddit %}
-    <a href="https://www.reddit.com/submit?url={{ page.url | absolute_url | url_encode }}"
-      class="btn btn-social-icon btn-reddit" title="Share on Reddit">
-      <span class="fab fa-fw fa-reddit" aria-hidden="true"></span>
-      <span class="sr-only">Reddit</span>
     </a>
   {% endif %}
 
