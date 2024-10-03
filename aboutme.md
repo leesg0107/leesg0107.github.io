@@ -22,7 +22,7 @@ For now, i'm studying about heterogeneous multi-robot systems.
 
 2021.3 soongsil university entrance<br>
 
-2022.5.2 charge to the army<br>
+2022.5.2 join the army<br>
 
 2023.10.27 discharge from the army <br>
 
