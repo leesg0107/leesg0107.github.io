@@ -28,7 +28,7 @@ HetGPPO는 이 논문을 통해 다음 2 가지 결과를 보여줍니다:
   - B<sub>s</sub>은 같은 objective function을 위해 행동을 하겠다는 것입니다. 즉 같은 reward fuction을 사용한다는 것을 의미합니다. 
   - B<sub>d</sub>은 다른 objective function을 가지며, 다른 reward function을 사용합니다. 그렇기에 B<sub>d</sub>은 적대적 세팅이나 비협력적인 환경에서 쓰이기도 하지만, 다른 sub-function을 가지게 할 수도 있습니다. 이는 이 세팅을 어떻게 하냐에 따라 계층적 강화학습처럼 쓸 수 있다는 점을 시사합니다.
 
-예를 들면 여러 같은 종류의 드론들이 있는데, 산불 구조 작전에 투입되었습니다. 몇 드론들은 그 안에 아직 남아있는 사람들이 있는지 확인하는 것이 임무이며, 나머지 드론들은 산불의 규모와 진행 방향을 조사하는 것으로 임무를 내리게 할 수 있습니다. 이제 이 요소들을 활용하여 heterogenous system을 분류해보겠습니다. 
+예를 들면 여러 같은 종류의 드론들이 있는데, 산불 구조 작전에 투입되었습니다. 몇 드론들은 그 안에 아직 남아있는 사람들이 있는지 확인하는 것이 임무이며, 나머지 드론들은 산불의 규모와 진행 방향을 조사하는 것으로 임무를 내리게 할 수 있습니다.(그냥 예시입니다.) 이제 이 요소들을 활용하여 heterogenous system을 분류해보겠습니다. 
 
 1. P\B
     물리적인 요소만 다른 경우. 이 같은 경우에는 센서나 하드웨어가 다른 로봇들이 동일한 목표를 위해 움직입니다. 예를 들면 서로 다른 능력의 로봇들이 한 영역 탐색을 위해 같은 행동 정책을 받아 사용합니다. 
@@ -80,7 +80,7 @@ HetGPPO는 이 논문을 통해 다음 2 가지 결과를 보여줍니다:
 
 장점이라면 공통의 정보가 필요없기에 모두 관찰 가능한 환경에서 꽤 두각을 나타내었습니다. GPPO는 이러한 IPPO의 장점은 계승하며, 단점은 극복한 모델입니다. 이것은 GNN communicaiton layer를 통해 이웃 간 agents이 정보를 공유하며 부분 관찰성을 완화시킴으로 단점은 극복하게 됩니다. 
 
-GPPO critic V<sub>i</sub>(o<sub>N<sub>i</sub></sub>) 와 actor 𝝅<sub>i</sub>(o<sub>N<sub>i</sub></sub>) 는 이웃 observation o<sub>N<sub>i</sub></sub> 을 반영합니다. 이는 IPPO에서 다른 agents들을 전혀 고려하지 않았다는 점에 비해 학습을 안전하게 만듭니다. 방 안에서 좀비 놀이를 하는데, 눈 가린 한 사람만 술래를 하면 잡는데 오래 걸리지만, 여러 사람들이 눈을 가리면 찾는다면 서로 "여기있다" 식의 소통을 통해 더 ��리 사람을 잡을 수 있다는 부분인 것 같습니다. agent i는 관찰을 통해 observation을 얻는데, 여기에는 절대적 특징을 포함합니다. 그것은 위치와 속도입니다. 그밖에 것들은 비절대적 특징으로 포함되고 것들은 z<sub>i</sub>으로 임베딩되어 a MLP(Multi Layer Perceptron) encoder로 넘겨집니다. 절대적 특징인 위치 p<sub>i</sub> 와 속도 v<sub>i</sub>는 edge 계산에 쓰이며, 다른 agent j가 있다고 했을 때, 
+GPPO critic V<sub>i</sub>(o<sub>N<sub>i</sub></sub>) 와 actor 𝝅<sub>i</sub>(o<sub>N<sub>i</sub></sub>) 는 이웃 observation o<sub>N<sub>i</sub></sub> 을 반영합니다. 이는 IPPO에서 다른 agents들을 전혀 고려하지 않았다는 점에 비해 학습을 안전하게 만듭니다. 방 안에서 좀비 놀이를 하는데, 눈 가린 한 사람만 술래를 하면 잡는데 오래 걸리지만, 여러 사람들이 눈을 가리면 찾는다면 서로 "여기있다" 식의 소통을 통해 더 효율적으로 사람을 잡을 수 있다는 부분인 것 같습니다. agent i는 관찰을 통해 observation을 얻는데, 여기에는 절대적 특징을 포함합니다. 그것은 위치와 속도입니다. 그밖에 나머지 부붙들은 비절대적 특징으로 포함되고 것들은 z<sub>i</sub>으로 임베딩되어 a MLP(Multi Layer Perceptron) encoder로 넘겨집니다. 절대적 특징인 위치 p<sub>i</sub> 와 속도 v<sub>i</sub>는 edge 계산에 쓰이며, 다른 agent j가 있다고 했을 때, 
 p<sub>ij</sub>=p<sub>i</sub>-p<sub>j</sub>, v<sub>ij</sub>=v<sub>i</sub>-v<sub>j</sub>으로 상대적 위치, 속도로 계산되어 edge feature 
 e<sub>ij</sub>=p<sub>ij</sub>||v<sub>ij</sub>이 됩니다. 
 
