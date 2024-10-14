@@ -16,7 +16,8 @@ author: OpenAi
 
 ->git 에서도 언급했듯이 이 framework은 아직 실험적 교육적 목적을 위한 초기 단계이지만, swarm을 이용한다면 이젠 혼자서도 회사 하나를 경영할 수 있는 수준에 이룰 수 있을 것입니다. 
 
-이 이미지들은 swarm examples 중 하나인 airline 의 실행 결과입니다. 
+이 이미지들은 swarm examples 중 하나인 airline 의 실행 결과입니다. <br>
+
 ![start](/assets/img/post_swarm/starting_conversation.png)<br>
 
 ![tri](/assets/img/post_swarm/triage_agent.png)<br>
@@ -59,20 +60,14 @@ from configs.agents import *
 from swarm.repl import run_demo_loop
 from openai import OpenAI
 
-#.env 파일에서 환경 변수 로드
 load_dotenv()
-
-#환경 변수에서 API 키 가져오기
 api_key = os.getenv("OPENAI_API_KEY")
 
 if not api_key:
     raise ValueError("OPENAI_API_KEY not found in environment variables")
 
-#OpenAI 클라이언트 초기화
 client = OpenAI(api_key=api_key)
 
-
-#OpenAI 모듈에도 API 키 설정
 import openai
 openai.api_key = api_key
 ```
