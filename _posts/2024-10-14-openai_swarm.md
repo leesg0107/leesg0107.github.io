@@ -3,7 +3,7 @@ layout: post
 title: OpenAI-Swarm 
 subtitle: multiagent-communication 
 cover-img: /assets/img/path.jpg
-thumbnail-img: /assets/img/GPPO_HetGPPPO.png
+thumbnail-img: /assets/img/post_swarm/swarm_bee.png
 share-img: /assets/img/path.jpg
 tags: [MA]
 author: OpenAi 
