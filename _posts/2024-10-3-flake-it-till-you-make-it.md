@@ -11,7 +11,7 @@ author: Matteo Bettini, Ajay Shankar and Amanda Prorok
 
 ### Before diving into the paper  
 
-기존의 MARL frameworks에서는 제대로 된 heterogeneous policy들을 이용하는 능력이 부족할 뿐만 아니라 공유 파라미터를 사용하기에 decentralized agents을 만드는데에 한계가 있었습니다. 허나 저자는 제안하는 HetGPPO는 부분 관찰 가능한 환경에서의 한계를 극복하는 동시에 완전히 decentralized 학습을 가능하게 합니다. 
+기존의 MARL frameworks에서는 제대로 된 heterogeneous policy들을 이용하는 능력이 부족할 뿐만 아니라 공유 파라미터를 사용하기에 decentralized agents을 만드는데에 한계가 있었습니다. 허나 저자는 제안하는 **HetGPPO**는 부분 관찰 가능한 환경에서의 한계를 극복하는 동시에 완전히 decentralized 학습을 가능하게 합니다. 
 
 HetGPPO는 이 논문을 통해 다음 2 가지 결과를 보여줍니다:
 1. 강한 heterogeneous 요구사항으로 homogeneous 방법이 실패할 시 HetGPPO는 성공하는 결과를 보여줍니다. 
@@ -94,9 +94,9 @@ h<sub>i</sub> = 𝛙<sub>𝜃<sub>i</sub></sub>(z<sub>i</sub>) + ⨁<sub>j∈N<s
 
 ### 2. HetGPPO(Heterogeneous Graph Neural Network Proximal policy Optimization)
 HetGPPO에서는 이러한 parameter sharing을 과감히 제거합니다. 이로써 순열 등가성, permutation equivariance가 사라집니다.
-순열 등가성이란 입력 노드의 순서를 바꿔도 출력 결과가 이에 상응하여 바뀌는 속성을 뜻합니다. 이 점은 그래프의 순서는 중요하지 않다! 를 의미합니다. GPPO의 그림를 보면 동일한 파라미터를 쓰기에 입력 순서에 상관없이 결과는 같게 됩니다. 하지만 HetGPPO에서는 서로 다른 parameter들을 쓰니 이 순열 등가성은 사라지게 되는 것입니다.
+순열 등가성이란 입력 노드의 순서를 바꿔도 출력 결과가 이에 상응하여 바뀌는 속성을 뜻합니다. 즉 그래프의 순서는 중요하지 않다! 를 의미합니다. GPPO의 그림를 보면 동일한 파라미터를 쓰기에 입력 순서에 상관없이 결과는 같게 됩니다. 하지만 HetGPPO에서는 서로 다른 parameter들을 쓰니 이 순열 등가성은 사라지게 되는 것입니다.
 이제 agents는 다른 메세지 encoding과 해석법을 학습합니다. 이것은 확실한 단점이 있습니다. 서로 다른 parameter들을 씀으로써 일반화의 능력과 샘플 효율성이 떨어집니다. 그럼에도 이 단점을 능가하는 장점들이 있습니다.
-이제는 global 정보 없이, agent들 간 통신만을 학습이 가능해집니다. 또한 이웃을 통해 gradient가 backpropagation이 되어 주변과의 상호작용으로 학습합니다. 이로써 HetGPPO는 Decentralized Training, Decentralized Execution을 달성하게 됩니다. 
+이제는 global 정보 없이, agent들 간 통신만을 사용하여 학습이 가능해집니다. 또한 이웃을 통해 gradient가 backpropagation이 되어 주변과의 상호작용으로 학습합니다. 이로써 HetGPPO는 Decentralized Training, Decentralized Execution을 달성하게 됩니다. 
 
 
 ### 결론 
