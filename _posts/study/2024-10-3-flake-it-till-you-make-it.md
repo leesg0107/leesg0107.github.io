@@ -7,6 +7,7 @@ thumbnail-img: /assets/img/GPPO_HetGPPPO.png
 share-img: /assets/img/path.jpg
 tags: [MARL,GNN]
 author: Matteo Bettini, Ajay Shankar and Amanda Prorok 
+category: study
 ---
 
 ### Before diving into the paper  
