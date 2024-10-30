@@ -295,3 +295,7 @@ plugins:
 # Beautiful Jekyll / Dean Attali
 # 2fc73a3a967e97599c9763d05e564189
 
+# 커스텀 CSS 파일 추가
+extra_css:
+  - "/assets/css/custom.css"
+

@@ -1,0 +1,12 @@
+<div class="sidebar-categories">
+  <h3>Categories</h3>
+  <ul class="category-list">
+    {% for category in site.categories %}
+    <li class="category-item">
+      <a href="{{ site.baseurl }}/categories#{{ category[0] | slugify }}">
+        {{ category[0] }} ({{ category[1].size }})
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
