@@ -7,6 +7,7 @@ thumbnail-img: /assets/img/post_swarm/swarm_bee.png
 share-img: /assets/img/path.jpg
 tags: [MA]
 author: OpenAi 
+category: study
 ---
 
 ### openai again.. 또 너야 
