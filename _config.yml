@@ -17,20 +17,20 @@ author: solgyu lee
 
 # Base URL for GitHub Pages  
 url: "https://leesg0107.github.io"
-baseurl: "/solife.github.io" 
+baseurl: "" 
 
 ###############################################
 # --- List of links in the navigation bar --- #
 ###############################################
 
 navbar-links:
-  About Me: "aboutme"
-  Projects: "projects"
+  About Me: "/aboutme"
+  Projects: "/projects"
   Study:
-    - RL: "study/rl"
-    - MARL: "study/marl" 
-    - Robotics: "study/robotics"
-    - All Studies: "study/all"
+    - RL: "/study/rl"
+    - MARL: "/study/marl" 
+    - Robotics: "/study/robotics"
+    - All Studies: "/study/all"
 
 ################
 # --- Logo --- #
