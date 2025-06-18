@@ -2,6 +2,7 @@
 layout: page
 title: All Studies
 subtitle: Complete collection of research notes and insights
+permalink: /study/all/
 ---
 
 <div class="study-category-header all-studies-header">

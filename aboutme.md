@@ -1,7 +1,8 @@
 ---
 layout: page
 title: About me
-subtitle: Introduction 
+subtitle: Introduction
+permalink: /aboutme/
 ---
 
 Hey i'm solgyu lee from Korea. 

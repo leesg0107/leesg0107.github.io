@@ -2,6 +2,7 @@
 layout: page
 title: Reinforcement Learning
 subtitle: Deep dive into RL algorithms and applications
+permalink: /study/rl/
 ---
 
 <div class="study-category-header">

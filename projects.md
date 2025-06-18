@@ -2,6 +2,7 @@
 layout: page
 title: Projects
 subtitle: Innovative projects and development logs
+permalink: /projects/
 ---
 
 <div class="projects-header">
