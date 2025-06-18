@@ -22,7 +22,11 @@ author: solgyu lee
 navbar-links:
   About Me: "aboutme"
   Projects: "projects"
-  Categories: "categories"
+  Study:
+    - RL: "study/rl"
+    - MARL: "study/marl" 
+    - Robotics: "study/robotics"
+    - All Studies: "study/all"
 
 ################
 # --- Logo --- #
@@ -30,10 +34,10 @@ navbar-links:
 
 # Image to show in the navigation bar - works best with a square image
 # Remove this parameter if you don't want an image in the navbar
-avatar: "/assets/img/avatar-icon.png"
+# avatar: "/assets/img/avatar-icon.png"
 
 # By default, the image is cut into a circle. You can disable this behaviour by setting 'round-avatar: false'
-round-avatar: true
+# round-avatar: true
 
 # If you want to have an image logo in the top-left corner instead of having the title of the website,
 # then specify the following parameter
@@ -151,12 +155,16 @@ footer-hover-col: "#0085A1"
 #mobile-theme-col: "#0085A1"
 
 # For any extra visual customization, you can include additional CSS files in every page on your site. List any custom CSS files here
-#site-css:
-#  - "/assets/css/custom-styles.css"
+site-css:
+  - "/assets/css/custom.css"
 
 # If you have common JavaScript files that should be included in every page, list them here
 #site-js:
 #  - "/assets/js/custom-script.js"
+
+# External CSS (FontAwesome for icons)
+ext-css:
+  - "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
 
 #################################
 # --- Web Analytics Section --- #
