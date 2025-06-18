@@ -2,6 +2,7 @@
 layout: page
 title: Robotics
 subtitle: Intelligent machines and autonomous systems
+permalink: /study/robotics/
 ---
 
 <div class="study-category-header robotics-header">

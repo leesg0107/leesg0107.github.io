@@ -2,6 +2,7 @@
 layout: page
 title: Multi-Agent Reinforcement Learning
 subtitle: Collaborative intelligence and multi-agent systems
+permalink: /study/marl/
 ---
 
 <div class="study-category-header marl-header">
