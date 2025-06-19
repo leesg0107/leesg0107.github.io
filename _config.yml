@@ -17,7 +17,7 @@ author: solgyu lee
 
 # Base URL for GitHub Pages  
 url: "https://leesg0107.github.io"
-baseurl: ""  # Empty for local development 
+baseurl: "/solife.github.io"  # Repository name for GitHub Pages 
 
 ###############################################
 # --- List of links in the navigation bar --- #
