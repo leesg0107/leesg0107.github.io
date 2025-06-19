@@ -299,3 +299,15 @@ plugins:
 extra_css:
   - "/assets/css/custom.css"
 
+# 카테고리 설정 추가
+collections:
+  categories:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: categories
+    values:
+      layout: category
+
