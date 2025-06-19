@@ -25,8 +25,8 @@ This hands-on approach helps me design more practical and implementable MARL sol
 
 ### My skills  
 
-| Programming | Frameworks & Tools | Hardware |
 |-------------|-------------------|----------|
+| Programming | Frameworks & Tools | Hardware |
 | Python      | PyTorch           | Soldering |
 | Rust        | ROS2              | Robot Assembly |
 | C++         | Isaac Sim         |  |
@@ -62,7 +62,6 @@ The intersection of **artificial intelligence** and **physical robotics** excite
 
 ---
 
-*"Building intelligent robots that can learn, collaborate, and adapt—one algorithm and one solder joint at a time."*
 
 
 
