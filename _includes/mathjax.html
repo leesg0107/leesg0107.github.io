@@ -1,12 +1,48 @@
 {% if page.mathjax %}
 <script type="text/javascript">
-  MathJax = {
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      tags: 'ams',
+      autoload: {
+        color: [],
+        colorV2: ['color']
+      },
+      packages: {'[+]': ['noerrors']}
+    },
     options: {
-      skipHtmlTags: [
-        'script', 'noscript', 'style', 'textarea', 'pre', 'code'
-      ]
+      ignoreHtmlClass: 'tex2jax_ignore',
+      processHtmlClass: 'tex2jax_process',
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    loader: {
+      load: ['[tex]/noerrors']
     }
   };
 </script>
-<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+<style>
+.MathJax {
+  font-size: 1.1em !important;
+}
+
+.MathJax_Display {
+  margin: 1.5em 0 !important;
+  padding: 1rem !important;
+  background: #f8f9fa !important;
+  border-radius: 10px !important;
+  border-left: 4px solid var(--primary-gradient, #667eea) !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05) !important;
+}
+
+.MathJax span {
+  color: #2d3748 !important;
+}
+</style>
 {% endif %}
