@@ -89,7 +89,7 @@ e<sub>ij</sub>=p<sub>ij</sub>||v<sub>ij</sub>이 됩니다.
 message-passing GNN kernel:<br>
 h<sub>i</sub> = 𝛙<sub>𝜃<sub>i</sub></sub>(z<sub>i</sub>) + ⨁<sub>j∈N<sub>i</sub></sub> 𝛟<sub>𝜃<sub>i</sub></sub>(z<sub>j</sub> || e<sub>ij</sub>)
 
-여기서 𝛙<sub>𝜃<sub>i</sub></sub> 와 𝛟<sub>𝜃<sub>i</sub></sub> 는 두 개의 MLP들이며, ⨁ 는 집계 연산(sum)입니다. 여기서는 이웃 노드들로부터 오는 정보를 결합하는데에 쓰입니다. 위의 복잡해보이는 식을 해석하자면 GNN output인 h<sub>i</sub>이 두 개의 MLP decoder들로 보내지게 됩니다.
+여기서 𝛙<sub>𝜃<sub>i</sub></sub> 와 𝛟<sub>𝜃<sub>i</sub></sub> 는 두 개의 MLP들이며, ⨁ 는 집계 연산(sum)입니다. 여기서는 이웃 노드들로부터 오는 정보를 결합하는 데에 쓰입니다. 위의 복잡해보이는 식을 해석하자면 GNN output인 h<sub>i</sub>이 두 개의 MLP decoder들로 보내지게 됩니다.
 𝜃<sub>i</sub>는 파라미터인데, 모든 agents의 이 𝜃<sub>i</sub>값이 동일합니다. 이런 parameter sharing을 통해 샘플 효율성을 증가시키는 효과를 불러오고 IPPO의 정보 폐쇄성을 극복합니다.
 여기서 아쉬운 점이 발생하는데, 동일한 𝜃<sub>i</sub>들을 사용한다는 것은 이 학습은 centralized하다는 점이 발생합니다. 또한 agents들이 같아진다는 즉 homogeneous하게 변한다는 점이 있습니다. 이제 HetGPPO를 알아봅시다.
 
