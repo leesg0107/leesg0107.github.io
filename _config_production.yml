@@ -1,8 +1,0 @@
-# Production configuration for GitHub Pages
-# This file overrides _config.yml settings for production deployment
-
-baseurl: "/solife.github.io"
-url: "https://leesg0107.github.io"
-
-# Production environment settings
-environment: production 
