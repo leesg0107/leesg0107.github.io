@@ -16,3 +16,7 @@ group :jekyll_plugins do
   gem "jekyll-paginate", "~> 1.1"
 end
 
+# Ruby 3.4+ compatibility
+gem "bigdecimal"
+gem "logger"
+
