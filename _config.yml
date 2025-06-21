@@ -31,6 +31,11 @@ navbar-links:
     - MARL: "/study/marl" 
     - Robotics: "/study/robotics"
     - All Studies: "/study/all"
+  Journey:
+    - Dev Log: "/journey/dev"
+    - Challenges: "/journey/challenges"
+    - Reflections: "/journey/reflections"
+    - All Journey: "/journey/all"
 
 ################
 # --- Logo --- #

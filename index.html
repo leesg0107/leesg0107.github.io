@@ -55,6 +55,23 @@ subtitle: Welcome to explore with me!
       </div>
     </div>
 
+    <!-- Journey Section -->
+    <div class="dashboard-card journey-card">
+      <div class="card-icon">
+        <i class="fas fa-route"></i>
+      </div>
+      <div class="card-content">
+        <h3>Journey</h3>
+        <p>Daily life insights, coding adventures, and meaningful moments that shape the SOLIFE experience.</p>
+        <div class="journey-categories">
+          <a href="/journey/dev" class="category-tag journey-tag">Dev Log</a>
+          <a href="/journey/challenges" class="category-tag journey-tag">Challenges</a>
+          <a href="/journey/reflections" class="category-tag journey-tag">Reflections</a>
+          <a href="/journey/all" class="category-tag journey-tag">View All</a>
+        </div>
+      </div>
+    </div>
+
     <!-- Recent Posts Section -->
     <div class="dashboard-card recent-card full-width">
       <div class="card-content">
@@ -187,7 +204,8 @@ subtitle: Welcome to explore with me!
 
 .about-card .card-icon { color: #4facfe; }
 .projects-card .card-icon { color: #43e97b; }
-.study-card .card-icon { color: #fa709a; }
+.study-card .card-icon { color: #6c5ce7; }
+.journey-card .card-icon { color: #fd7e14; }
 .recent-card .card-icon { color: #ffeaa7; }
 .stats-card .card-icon { color: #a29bfe; }
 
@@ -215,7 +233,7 @@ subtitle: Welcome to explore with me!
   color: #3182ce;
 }
 
-.study-categories {
+.study-categories, .journey-categories {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -236,6 +254,14 @@ subtitle: Welcome to explore with me!
 .category-tag:hover {
   transform: translateY(-2px);
   color: white;
+}
+
+.study-categories .category-tag {
+  background: linear-gradient(135deg, #6c5ce7, #a29bfe) !important;
+}
+
+.journey-tag {
+  background: linear-gradient(135deg, #fd7e14, #fdcb6e) !important;
 }
 
 .recent-posts-grid {
