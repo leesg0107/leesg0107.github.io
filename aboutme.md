@@ -5,34 +5,63 @@ subtitle: Introduction
 permalink: /aboutme/
 ---
 
-Hey i'm solgyu lee from Korea. 
-I'm a student at soongsil university in Seoul as sophomore. 
-My interest is in Multi-agent reinforcement learning especially in the robotics.
-For now, i'm studying about heterogeneous multi-robot systems. 
+## 👋 Hello, I'm Solgyu Lee
+
+I'm a passionate **junior student** at Soongsil University in Seoul, South Korea, specializing in **Multi-Agent Reinforcement Learning (MARL)** with a focus on **robotics applications**. 
+
+### 🤖 My Research Focus
+
+My primary interest lies in **Multi-Agent Reinforcement Learning**, particularly its applications in **robotics systems**. I'm fascinated by how multiple intelligent agents can collaborate, compete, and learn from each other to solve complex real-world problems. However, my ultimate goal extends beyond theoretical research—I aim to become a **well-rounded roboticist** who can bridge the gap between cutting-edge AI algorithms and practical robotic implementations.
+
+### 🔧 From Theory to Practice
+
+While I dive deep into MARL algorithms and neural networks, I believe that understanding the **physical aspects of robotics** is equally crucial. That's why I'm actively involved in:
+
+- **Hardware Projects**: Building robots from scratch to understand mechanical constraints
+- **Electronics**: Learning soldering and circuit design for custom robotic components  
+- **Systems Integration**: Combining AI software with real robotic hardware
+
+This hands-on approach helps me design more practical and implementable MARL solutions for real-world robotic systems.
 
 ### My skills  
 
-| Programming | Tools | 
-|-------------|-------|
-| Python      | Pytorch |
-| Rust         | ROS2| 
-|       | Unreal Engine5   
+|-------------|-------------------|----------|
+| Programming | Frameworks & Tools | Hardware |
+| Python      | PyTorch           | Soldering |
+| Rust        | ROS2              | Robot Assembly |
+| C++         | Isaac Sim         |  |
+|       | Gazebo            |  |
+
+### 🎯 Vision & Goals
+
+I believe the future of robotics lies in **intelligent multi-robot systems** that can:
+- Collaborate efficiently in dynamic environments
+- Learn and adapt from collective experiences  
+- Operate safely alongside humans
+- Scale from laboratory settings to real-world applications
+
+My mission is to contribute to this future by developing MARL algorithms that are not just theoretically sound, but also **practically deployable** in real robotic systems.
 
 ### Biography 
-2002.1.7 born in Seoul, Korea<br>
+**2002.1.7** Born in Seoul, Korea 🇰🇷<br>
+**2021.3** Entered Soongsil University<br>
+**2022.5.2** Military service begins<br>
+**2023.10.27** Discharged from military service<br>
+**2024.3** Returned to university as sophomore<br>
+**2025** Currently junior, focusing on MARL & Robotics<br>
 
-2021.3 soongsil university entrance<br>
+### 🌟 Who Am I 
 
-2022.5.2 join the army<br>
+I'm a **curious explorer** driven by the desire to understand how things work—from the mathematical foundations of reinforcement learning to the mechanical intricacies of robotic joints. 
 
-2023.10.27 discharge from the army <br>
+I believe in **learning by doing**. Whether it's implementing a new MARL algorithm or soldering components for a custom robot, I find that hands-on experience provides insights that theory alone cannot offer.
 
-2024.3 return to uni as sophomore<br>
+**Life Philosophy**: *Every challenge, whether it's debugging a stubborn RL algorithm or troubleshooting a malfunctioning robot, is an opportunity to grow. I've learned that embracing both successes and setbacks with curiosity rather than frustration leads to deeper understanding and better solutions.*
+
+The intersection of **artificial intelligence** and **physical robotics** excites me because it represents the ultimate challenge: creating machines that can think, learn, and act intelligently in our complex, unpredictable world.
+
+---
 
 
-### who am i 
-I'm a very curious person. I like to learn new things.  
-The important thing is that live a life which you can enjoy small moments. 
-Not every moment can be perfect, but I believe these imperfect moments can make me a stronger person. This is true in reality, and thinking this way also helps me get through tough times more easily. Instead of just focusing on emotions, having this broader perspective allows me to handle challenging moments better.
 
 

@@ -5,6 +5,7 @@ subtitle: "Understanding RL through the lens of progressive mathematical abstrac
 tags: [RL, MDP, markov-process, monte-carlo, mathematical-foundations]
 author: solgyu
 category: study
+mathjax: true
 ---
 
 ## Introduction

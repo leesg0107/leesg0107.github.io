@@ -17,7 +17,7 @@ author: solgyu lee
 
 # Base URL for GitHub Pages  
 url: "https://leesg0107.github.io"
-baseurl: "" 
+baseurl: ""  # Empty for user site (leesg0107.github.io)
 
 ###############################################
 # --- List of links in the navigation bar --- #
@@ -320,4 +320,16 @@ plugins:
 # 커스텀 CSS 파일 추가
 extra_css:
   - "/assets/css/custom.css"
+
+# 카테고리 설정 추가
+collections:
+  categories:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: categories
+    values:
+      layout: category
 
