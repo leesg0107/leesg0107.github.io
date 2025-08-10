@@ -1,13 +1,12 @@
 ---
 layout: post
-title: "Soltrone Development Log #<N>"
-subtitle: "<one-line objective / milestone>"
+title: "Soltrone Development Log #3"
+subtitle: "Control link and arming validation with ArduPilot on Speedbee F4 Plus"
 tags: [soltrone, drone, raspberry-pi, ardupilot, mavlink, ros2, hardware, dev-log]
 author: solgyu
 category: journey
 subcategory: dev
 thumbnail-img: /assets/img/thumb.png
-published: false
 ---
 
 ## Objective
@@ -49,3 +48,12 @@ Establish a reliable end‑to‑end control link between the desktop and the dro
 ## Status
 
 Control link established and arming verified after firmware/parameter fixes; outdoor validation and hardware mounting improvements are next.
+
+## Media
+
+![Soltrone Log 3 - Snapshot 1](/assets/img/soltrone_log3/94C0E86B-600B-4E81-9E32-154134C01321_4_5005_c.jpeg)
+*Bench setup / wiring snapshot*
+
+![Soltrone Log 3 - Snapshot 2](/assets/img/soltrone_log3/9FB5D57B-D629-4347-BE63-5407D4385288_4_5005_c.jpeg)
+*Bench test / controller snapshot*
+
