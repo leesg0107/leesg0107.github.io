@@ -117,16 +117,23 @@ With communication sorted, the roadmap becomes clearer:
 3. **Camera integration** (finally putting those vision plans to work)
 4. **Mission-specific behaviors** (the fun stuff!)
 
-## SOLIFE Reflection
+## Issues, root causes, and fixes
 
-This milestone taught me about **choosing the right tools for the job.** Betaflight is excellent for what it's designed for, but recognizing when you've outgrown a tool is just as important as learning to use it.
+- Repeated ESC failures: Solder shorts and vibration-induced contact.
+  - Fix: Re-solder with proper tip/temp, use flux, continuity check; apply heat-shrink and secure with zip ties; isolate ESCs with foam pads.
+- Unreliable phone connection on Betaflight: Firmware constraints for companion-computer workflows.
+  - Fix: Migrate to ArduPilot for richer MAVLink + companion support; verify serial params (e.g., `SERIALx_PROTOCOL=2`, baud rates) and heartbeats.
+- Power instability on Raspberry Pi 5: Brownouts under load.
+  - Fix: Use UBEC 5A with adequate headroom; keep wiring short; monitor voltage/current.
 
-Sometimes progress means admitting that your current solution isn't the right one, even if it means more work in the short term.
+## Verified working configuration
 
-The communication breakthrough feels like crossing a major threshold. Soltrone went from being a collection of hardware to being a **connected system.** That's a fundamental shift.
+- Communication chain: Phone ↔ Raspberry Pi 5 ↔ Flight Controller (ArduPilot)
+- Stable telemetry/control over web dashboard served on Pi
+- Bidirectional MAVLink confirmed via logs
 
 ---
 
 *Next update: Flight tests with full communication stack (battery permitting).* 🔋
 
-**Status**: Communication achieved. Flight controller ↔ Pi ↔ Phone chain operational. Ready for autonomous operations once power management is sorted. 🚁📡 
+**Status**: ArduPilot comms stable; waiting on LiPo charger to begin flight tests. 🚁📡

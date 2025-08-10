@@ -10,7 +10,7 @@ subcategory: dev
 
 ## Nothing Ever Goes According to Plan
 
-Meet **Soltrone** - my ambitious attempt at building a multifunctional drone. The concept seemed straightforward enough: Raspberry Pi 5 + camera + depth camera. Simple, right?
+Meet **Soltrone** - my ambitious attempt at building a multifunctional drone. The concept seemed straightforward enough: Raspberry Pi 5 + camera. Simple, right?
 
 *Spoiler alert: It wasn't.*
 
@@ -26,14 +26,14 @@ The result? I accidentally created a bridge between components, which promptly f
 
 ### 1. The Vision vs. Reinforcement Learning Debate
 
-This is where things get philosophically interesting. I have two sensors - a regular camera and a depth camera. The question is: how do I best utilize this data?
+This is where things get philosophically interesting. I have a sensor - a regular camera The question is: how do I best utilize this data?
 
 **Option 1: Pre-trained Vision Models**
 - Pros: Excellent performance out of the box
 - Cons: Integrating depth camera data requires additional work/training
 
 **Option 2: End-to-End Reinforcement Learning**
-- Pros: Can train on both camera and depth data simultaneously
+- Pros: Can train on both camera 
 - Cons: Limited scalability for complex vision tasks
 
 Here's my dilemma: I want to start with Option 2 for obstacle avoidance (it makes sense for this use case), but what about owner recognition? Object detection? More sophisticated vision tasks? RL might hit a ceiling there.
@@ -89,14 +89,23 @@ Soltrone v1 will be conservative by design. I'm focusing on:
 
 The dream of a fully autonomous, multi-modal AI drone is still there. But I'm learning that the path to that dream is paved with burnt ESCs, budget constraints, and the occasional hardware catastrophe.
 
-## SOLIFE Reflection
+## Failures, causes, and fixes
 
-This project is teaching me that engineering isn't just about algorithms and code - it's about managing complexity, working within constraints, and learning from spectacular failures.
+- Burnt ESC: Caused by unintended solder bridge and poor insulation.
+  - Fix: Replace ESC, rework solder joints, add heat-shrink/insulation, strain-relief on wires, continuity test before power.
+- Depth camera instability: Potential defective unit or power noise.
+  - Fix: Validate with separate power source; test USB cable/port; check dmesg logs; try firmware reset; swap unit if unstable persists.
+- Feature creep and complexity: Expanding scope increased integration risk.
+  - Fix: Freeze v1 scope to stable control + single-sensor avoidance; gate new features behind simulation sign-off.
 
-Every burnt component, every failed test, every "why isn't this working?" moment is part of the journey. The goal isn't to avoid mistakes - it's to learn from them faster than they can bankrupt me.
+## Actionable checklist
+
+- Pre-flight hardware checklist: continuity test, insulation check, ESC calibration, propellers off for motor tests.
+- Simulation-first: validate new features in IsaacSim; only then move to hardware.
+- Budget guardrails: component selection sheet with cost caps; buy spares for high-risk parts (ESCs, props).
 
 ---
 
 *Next update: Hopefully with a working ESC and fewer sparks flying.* ⚡
 
-**Status**: Soltrone v1 development continues. The dream is alive, even if the ESC isn't. 🚁✨
+**Status**: v1 scope locked; hardware reworked; simulation-first pipeline in place. 🚁

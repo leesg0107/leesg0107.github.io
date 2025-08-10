@@ -42,15 +42,22 @@ Understanding the environment's input/output specifications isn't just "nice to 
 3. **Assumptions kill**: "Simple" environments can still trip you up if you don't understand them
 4. **Debug systematically**: Instead of random hyperparameter tuning, understand the problem first
 
-## The SOLIFE Takeaway
+## Issue, cause, and fix
 
-This is exactly the kind of "learning experience" (aka mistake) that doesn't make it into polished tutorials or research papers. But it's real, it's relatable, and it's how we actually learn.
+- Issue: PPO performed poorly in a PettingZoo environment labeled as simple.
+- Root cause: Used a PPO implementation for continuous action spaces in a discrete action environment, leading to invalid action clipping and wrong action mapping.
+- Fix:
+  - Use a discrete policy with a categorical action distribution.
+  - Remove continuous-space clipping logic and any Box-space assumptions.
+  - Ensure the selected action indexes map directly to the environment's discrete space.
 
-Sometimes the best lessons come from the most frustrating bugs. And sometimes, the solution is embarrassingly simple once you find it.
+## Quick checklist
+
+- Confirm `env.action_space` is `Discrete` and record its `n`.
+- Use a categorical distribution for policy output; no clipping on actions.
+- Add assertions for action shape/range and a minimal rollout smoke test.
 
 ---
 
-*Next time, I'm reading the docs twice. Maybe three times. Who am I kidding - I'll probably make a similar mistake next week.* 🤷‍♂️
-
-**Current status**: PPO is working, environment is happy, and I have a new appreciation for documentation. Win-win-win! ✨
+**Current status**: Correct policy/action mapping applied; PPO training behaves as expected.
 
