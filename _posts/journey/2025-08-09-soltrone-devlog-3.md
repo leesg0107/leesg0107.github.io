@@ -9,45 +9,15 @@ subcategory: dev
 thumbnail-img: /assets/img/thumb.png
 ---
 
-## Objective
+I thought I had control because the desktop could ping the Pi’s web server. Turns out that’s like waving at the tower and calling it flying. The FC didn’t care about my browser; the link to the actual controller wasn’t there yet. Mission Planner wouldn’t ARM either, which sent me spelunking through parameters and firmware flavors.
 
-Establish a reliable end‑to‑end control link between the desktop and the drone via Raspberry Pi 5 (not just web server reachability), and verify arming and basic control.
+The FC is a Speedbee F4 Plus, which doesn’t have a comfy first‑class seat in ArduPilot. I’d flashed a similar brand’s target before and kept getting those passive‑aggressive “config error, fix problem and reboot” messages. Switching to the generic `OMNIBUSF4` finally made the board feel seen.
 
-## Symptoms
+Then came the arming checks. This board simply doesn’t have all the sensors ArduPilot dreams about. Once I stopped arguing with reality and disabled the checks for the missing parts via the Full Parameter List, the ARM light finally said hello. Props stayed off; I like my fingers.
 
-- Desktop could reach the Raspberry Pi 5 web server, but there was no actual control path to the flight controller (FC).
-- Mission Planner wired connection could not ARM the vehicle.
+From the desktop, I hit the Pi over TCP, watched telemetry wake up, and—carefully—tickled the motors. Not a full flight, just enough to prove the path works end‑to‑end. Outdoor testing will carry the rest.
 
-## Root causes
-
-1. Firmware mismatch on the FC (Speedbee F4 Plus)
-   - There is no dedicated ArduPilot firmware build for this exact board. Flashing a different brand’s target caused errors such as “config error, fix problem and reboot.”
-   - Resolution: Flash the generic `OMNIBUSF4` ArduPilot target so the FC is recognized correctly.
-
-2. Arming checks failing due to unsupported/absent sensors
-   - The low-cost Speedbee F4 Plus lacks several sensors. Related parameters must be disabled, otherwise arming fails.
-   - Resolution: In Setup → Full Parameter List, identify parameters flagged in Messages and set the missing‑sensor checks to 0 (disabled) as appropriate.
-
-## Fix steps
-
-1. Flash ArduPilot `OMNIBUSF4` to the FC and confirm no persistent config errors.
-2. Review Messages in Mission Planner; disable arming checks for sensors not present on the board via Full Parameter List.
-3. Reconnect and verify ARM status with props off.
-
-## Validation
-
-- Connected from desktop to the Raspberry Pi 5 via TCP using the Pi’s IP and confirmed telemetry/control flow to the FC.
-- Performed limited indoor throttle/arming tests (no props/short hover attempts). Full outdoor testing pending.
-
-## Next actions
-
-- Securely mount the Raspberry Pi 5 (current temporary mount risks prop contact).
-- Conduct outdoor flight tests for full control validation.
-- Begin ROS2 integration toward autonomous behaviors once the control link is proven stable.
-
-## Status
-
-Control link established and arming verified after firmware/parameter fixes; outdoor validation and hardware mounting improvements are next.
+Next up: mount the Pi like I mean it, keep cables away from props, and take this outside where it belongs. When the link survives the wind, I’ll bring ROS2 back into the picture and start teaching the drone something more interesting than “don’t spin into things.”
 
 ## Media
 
