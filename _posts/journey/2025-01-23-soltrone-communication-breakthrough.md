@@ -8,19 +8,15 @@ category: journey
 subcategory: dev
 ---
 
-## The Communication Challenge Conquered
-
-Remember my last update where I was nursing burnt ESCs and debugging hardware disasters? Well, I'm back with some actual good news for once! **Soltrone can now communicate properly.**
-
-The journey from basic flight control to full communication has been... educational. Let's just say I've learned more about drone firmware limitations than I ever wanted to.
+I used to think “if the motors spin, I’m basically done.” Then I tried to make the drone talk to everything else. The week started with Betaflight humming along nicely—motors armed, basic control behaved—and ended with me switching the entire firmware stack to ArduPilot because I kept head‑butting the limits I didn’t know were there.
 
 ## Phase 1: Betaflight Success (With a Side of Sparks)
 
-Starting with the basics, I managed to get Betaflight working with my FC and ESC setup. The basic control tests were successful - motors spinning, flight controller responding, everything looking promising.
+Starting simple worked: Betaflight, FC, ESCs—all alive. For a minute it felt like the project had turned a corner.
 
 **Then came the soldering drama.** 
 
-Those messy solder joints I mentioned last time? They came back to haunt me. Turbulence in the solder connections kept causing shorts, and sure enough, another ESC bit the dust. 
+Those messy solder joints I mentioned last time? They weren’t done with me. Vibration turned one into a short and another ESC retired early.
 
 *Lesson learned: Good soldering isn't optional, it's survival.*
 
@@ -33,9 +29,9 @@ Sometimes the simplest solutions are the ones we overlook in our rush to get thi
 
 ## Phase 2: Raspberry Pi 5 Integration
 
-With the hardware finally stable, it was time for the next challenge: integrating the Raspberry Pi 5.
+Once the hardware stopped lighting warning candles, I plugged the Raspberry Pi 5 into the mix.
 
-**Power management was crucial here.** I used a UBEC 5A converter to provide stable power from the main battery to the Raspberry Pi 5. Clean power delivery = happy Pi = fewer mysterious crashes.
+Clean power turned out to be the quiet hero: a UBEC 5A kept the Pi stable and the gremlins out.
 
 ![Soltrone Hardware Setup](/assets/img/soltrone_log2/hardware_setup.jpeg)
 *The improved hardware setup: Raspberry Pi 5 with cooling, flight controller, clean wiring with proper insulation, and stable power distribution*
@@ -46,7 +42,7 @@ The Pi-to-FC connection worked beautifully. Data flowing back and forth, telemet
 
 ## The Betaflight Wall
 
-Here's where things got interesting. I could get the Raspberry Pi 5 talking to the flight controller just fine, but connecting to my phone? Nope. Not happening.
+Then I tried to bring a phone into the loop and hit a wall.
 
 After hours of debugging, documentation diving, and general frustration, I realized something important: **Betaflight has limitations.**
 
@@ -56,20 +52,17 @@ I need flexibility. I need extensibility. I need something that won't box me in 
 
 ## Phase 3: The ArduPilot Migration
 
-This was the "nuclear option" I'd been avoiding. Switching firmware mid-project feels like starting over, but sometimes you have to step back to move forward.
+I resisted the “switch firmware” button for days. It felt like starting over. It was actually the shortcut.
 
-**ArduPilot changed everything.**
+ArduPilot changed the conversation.
 
-Suddenly, the communication barriers that seemed insurmountable with Betaflight just... disappeared. The Pi-to-phone connection that had been fighting me for days worked on the first try.
+The Pi‑to‑phone link that fought me for days worked on the first try. Sometimes the answer is “use the tool built for the job.”
 
 ## Current Architecture Success
 
-Here's what I've achieved with the ArduPilot setup:
+Here’s what the current setup looks like—and actually works:
 
-**Hardware Communication Chain:**
-```
-Phone ↔ Raspberry Pi 5 ↔ Flight Controller
-```
+**Hardware Communication Chain:** Phone ↔ Raspberry Pi 5 ↔ Flight Controller
 
 **What actually works now:**
 - **Stable wired communication** between Raspberry Pi 5 and FC
@@ -78,7 +71,7 @@ Phone ↔ Raspberry Pi 5 ↔ Flight Controller
 - **Phone-based remote control** via designated URL
 - **Real-time drone control** from mobile device
 
-I can literally open a browser on my phone, navigate to the Pi's IP address, and control the drone remotely. It feels like magic after all the debugging.
+I can open a browser on my phone, hit the Pi’s IP, and move the drone from a web page. After the week I had, it honestly felt like a magic trick.
 
 ![DARE Drone Control Dashboard](/assets/img/soltrone_log2/dashboard_interface.jpeg)
 *The web-based control dashboard showing successful connection, telemetry data, and remote control capabilities*
@@ -88,24 +81,24 @@ I can literally open a browser on my phone, navigate to the Pi's IP address, and
 
 ## The Current Bottleneck: Power Management
 
-Of course, there's always something. Right now, I'm stuck on the most mundane issue possible: **battery charging.**
+Naturally, the next blocker is the least glamorous: **charging.**
 
 My LiPo batteries are completely drained from all the testing, and I don't have a proper LiPo charger yet. So while I have a fully functional communication system, I can't actually test flight operations.
 
-It's like having a Ferrari with an empty gas tank.
+Ferrari, empty tank.
 
 The charger is on the way, and once it arrives, I'll finally be able to do proper flight tests with the full communication stack running.
 
 ## Technical Insights
 
-**Why ArduPilot made the difference:**
+Why ArduPilot made the difference:
 - More flexible communication protocols
 - Better support for companion computers
 - Extensible architecture for custom features
 - Active development community
 - Built for complex missions, not just racing
 
-**The power of stepping back:**
+The power of stepping back:
 Sometimes the best debugging technique is admitting that your current approach isn't working. The Betaflight-to-ArduPilot switch felt like giving up, but it was actually the breakthrough moment.
 
 ## What's Next
