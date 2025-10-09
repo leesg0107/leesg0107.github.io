@@ -136,14 +136,10 @@ navbar-var-length: false
 #keywords: "my,list,of,keywords"
 
 # Jekyll configuration
-plugins:
-  - jekyll-paginate
-  - jekyll-sitemap
+# (plugins defined later in a single place)
 
 # Build settings
-markdown: kramdown
-highlighter: rouge
-permalink: pretty
+# (markdown/highlighter/permalink defined below in Output options)
 
 ######################################
 # --- Colours / background image --- #
@@ -290,19 +286,22 @@ kramdown:
 
 # Default YAML values (more information on Jekyll's site)
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
       type: "posts"
     values:
       layout: "post"
       comments: true  # add comments to all blog posts
       social-share: true # add social media sharing buttons to all blog posts
-  -
-    scope:
+  - scope:
       path: "" # any file that's not a post will be a "page" layout by default
     values:
       layout: "page"
+  - scope:
+      path: ""
+      type: categories
+    values:
+      layout: category
 
 # Exclude these files from production site
 exclude:
@@ -330,11 +329,4 @@ extra_css:
 collections:
   categories:
     output: true
-
-defaults:
-  - scope:
-      path: ""
-      type: categories
-    values:
-      layout: category
 
