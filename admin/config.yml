@@ -2,7 +2,7 @@ backend:
   name: github
   repo: leesg0107/leesg0107.github.io
   branch: master
-  base_url: https://<your-vercel-oauth-app>.vercel.app
+  base_url: https://leesg0107-github-io.vercel.app
   auth_endpoint: /auth
 
 local_backend: true
