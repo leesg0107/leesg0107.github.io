@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Content Manager</title>
+    <!-- Ensure manual init BEFORE loading Decap CMS -->
+    <script>window.CMS_MANUAL_INIT = true;</script>
     <!-- Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     <style>
@@ -30,11 +32,10 @@
         console.error('Error:', e);
       });
 
-      // 수동 초기화로 config.yml 의존 제거
-      window.CMS_MANUAL_INIT = true;
+      // 수동 초기화로 config.yml 의존 제거 + CMS 로드 대기
       document.addEventListener('DOMContentLoaded', function() {
-        try {
-          CMS.init({
+        function initCMS() {
+          window.CMS.init({
             config: {
               backend: {
                 name: 'github',
@@ -108,12 +109,26 @@
               ]
             }
           });
-        } catch (e) {
-          document.getElementById('loading').style.display = 'none';
-          document.getElementById('error').textContent = '초기화 오류: ' + (e && e.message ? e.message : e);
-          document.getElementById('error').style.display = 'block';
-          console.error('CMS init error', e);
         }
+
+        // Wait for Decap CMS global to exist then init
+        var attempts = 0;
+        (function waitForCMS(){
+          if (window.CMS && typeof window.CMS.init === 'function') {
+            try { initCMS(); } catch (e) {
+              document.getElementById('loading').style.display = 'none';
+              document.getElementById('error').textContent = '초기화 오류: ' + (e && e.message ? e.message : e);
+              document.getElementById('error').style.display = 'block';
+              console.error('CMS init error', e);
+            }
+            return;
+          }
+          if (attempts++ < 50) { return setTimeout(waitForCMS, 100); }
+          document.getElementById('loading').style.display = 'none';
+          document.getElementById('error').textContent = 'Decap CMS 스크립트를 불러오지 못했습니다.';
+          document.getElementById('error').style.display = 'block';
+          console.error('CMS global not available after waiting');
+        })();
       });
     </script>
   </body>
