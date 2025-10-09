@@ -1,0 +1,69 @@
+backend:
+  name: github
+  repo: leesg0107/solife.github.io
+  branch: master
+  base_url: https://api.netlify.com  # placeholder if using Netlify Identity; replace for direct GitHub OAuth
+  auth_endpoint: /auth  # you will replace with your OAuth provider endpoint
+
+local_backend: true
+
+site_url: "https://leesg0107.github.io"
+display_url: "https://leesg0107.github.io"
+
+media_folder: "assets/img/uploads"
+public_folder: "/assets/img/uploads"
+
+publish_mode: editorial_workflow
+
+collections:
+  - name: "project"
+    label: "Project Posts"
+    label_singular: "Project Post"
+    folder: "_posts/project"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: "md"
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
+      - { label: "Author", name: "author", widget: "string", default: "solgyu" }
+      - { label: "Category", name: "category", widget: "hidden", default: "project" }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "MathJax", name: "mathjax", widget: "boolean", default: false, required: false }
+      - { label: "Thumbnail", name: "thumbnail-img", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "study"
+    label: "Study Posts"
+    folder: "_posts/study"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: "md"
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
+      - { label: "Author", name: "author", widget: "string", default: "solgyu" }
+      - { label: "Category", name: "category", widget: "hidden", default: "study" }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "MathJax", name: "mathjax", widget: "boolean", default: true, required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "journey"
+    label: "Journey Posts"
+    folder: "_posts/journey"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: "md"
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
+      - { label: "Author", name: "author", widget: "string", default: "solgyu" }
+      - { label: "Category", name: "category", widget: "hidden", default: "journey" }
+      - { label: "Subcategory", name: "subcategory", widget: "select", options: ["dev", "challenges", "reflections"], required: false }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+
