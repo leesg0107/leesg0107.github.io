@@ -2,19 +2,8 @@ backend:
   name: github
   repo: leesg0107/leesg0107.github.io
   branch: master
-
-# 명시적 인증 설정
-base_url: https://decap-cms-oauth-hwu4z1au9-leesg0107s-projects.vercel.app
-auth_endpoint: /api/auth
-
-# 문제 해결을 위한 추가 설정들
-accept_roles: # 로그인할 수 있는 사용자 역할 제한 (필요시 설정)
-- admin
-- editor
-
-# 명시적 설정들
-squash_merges: false
-open_authoring: false
+  base_url: https://decap-cms-oauth-hwu4z1au9-leesg0107s-projects.vercel.app
+  auth_endpoint: /api/auth/github
 
 site_url: "https://leesg0107.github.io"
 display_url: "https://leesg0107.github.io"
