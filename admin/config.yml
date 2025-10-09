@@ -3,7 +3,7 @@ backend:
   repo: leesg0107/leesg0107.github.io
   branch: master
   base_url: https://decap-cms-oauth-hwu4z1au9-leesg0107s-projects.vercel.app
-auth_endpoint: /auth
+  auth_endpoint: /api/auth
 
 site_url: "https://leesg0107.github.io"
 display_url: "https://leesg0107.github.io"
