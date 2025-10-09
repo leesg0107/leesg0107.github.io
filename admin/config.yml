@@ -1,9 +1,9 @@
 backend:
   name: github
-  repo: leesg0107/solife.github.io
+  repo: leesg0107/leesg0107.github.io
   branch: master
-  base_url: https://api.netlify.com  # placeholder if using Netlify Identity; replace for direct GitHub OAuth
-  auth_endpoint: /auth  # you will replace with your OAuth provider endpoint
+  base_url: https://<your-vercel-oauth-app>.vercel.app
+  auth_endpoint: /auth
 
 local_backend: true
 
