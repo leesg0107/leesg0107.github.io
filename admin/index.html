@@ -6,10 +6,40 @@
     <title>Content Manager</title>
     <!-- Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <style>
+      /* 로딩 중 표시 */
+      body { font-family: Arial, sans-serif; }
+      #loading { text-align: center; padding: 50px; }
+      #error { color: red; text-align: center; padding: 20px; display: none; }
+    </style>
   </head>
   <body>
+    <div id="loading">Decap CMS 로딩 중...</div>
+    <div id="error"></div>
     <!-- The CMS mounts here -->
+
+    <script>
+      // 디버깅용 로그
+      console.log('Admin page loaded');
+
+      // 에러 처리
+      window.addEventListener('error', function(e) {
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('error').textContent = '오류 발생: ' + e.message;
+        document.getElementById('error').style.display = 'block';
+        console.error('Error:', e);
+      });
+
+      // CMS 로드 완료 대기
+      document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+          if (!document.querySelector('.nc-app')) {
+            document.getElementById('loading').textContent = 'CMS 로드 실패 - 설정을 확인하세요';
+          }
+        }, 5000);
+      });
+    </script>
   </body>
-  </html>
+</html>
 
 
