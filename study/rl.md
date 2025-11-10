@@ -6,7 +6,8 @@ permalink: /study/rl/
 ---
 
 <div class="posts-list">
-{% assign rl_posts = site.posts | where_exp: "post", "post.category == 'study' and post.tags contains 'RL'" %}
+{% assign study_posts = site.posts | where: "category", "study" %}
+{% assign rl_posts = study_posts | where_exp: "post", "post.tags contains 'RL'" %}
 {% if rl_posts.size > 0 %}
   {% for post in rl_posts %}
   <article>
