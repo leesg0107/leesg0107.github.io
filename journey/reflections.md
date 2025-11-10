@@ -6,7 +6,8 @@ permalink: /journey/reflections/
 ---
 
 <div class="posts-list">
-{% assign reflection_posts = site.posts | where_exp: "post", "post.category == 'journey' and post.tags contains 'reflections'" %}
+{% assign journey_posts = site.posts | where: "category", "journey" %}
+{% assign reflection_posts = journey_posts | where_exp: "post", "post.tags contains 'reflections'" %}
 {% if reflection_posts.size > 0 %}
   {% for post in reflection_posts %}
   <article>
