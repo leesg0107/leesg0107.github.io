@@ -21,19 +21,23 @@ common-js:
 
 <!DOCTYPE html>
 <html lang="{{ page.language | default: site.language | default: 'en' }}">
-<!-- Beautiful Jekyll 6.0.1 | Copyright Dean Attali 2023 -->
 {% include head.html %}
 
 <body>
   {% include gtm_body.html %}
 
-  {% include nav.html %}
-
-  {{ content }}
-
-  {% include footer.html %}
+  <!-- Sidebar Layout -->
+  <div class="sol-layout">
+    {% include nav.html %}
+    
+    <main class="sol-main">
+      <div class="sol-content">
+        {{ content }}
+      </div>
+      {% include footer.html %}
+    </main>
+  </div>
 
   {% include footer-scripts.html %}
-
 </body>
 </html>
