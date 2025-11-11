@@ -44,7 +44,7 @@ I'm actively studying and researching these interconnected areas, going beyond s
 
 What drew me to reinforcement learning was its elegance: **learning optimal behaviors through trial and error**. But through countless simulation experiments, I realized something crucial—**simulations alone aren't enough**. To make robotics meaningful, I needed to build real robots. This meant diving into soldering, electrical engineering, mechanical design. The more challenging it gets, the more I'm drawn to it.
 
-This journey taught me that **technologies are tools for solving problems, not ends in themselves**. What matters isn't mastering a specific algorithm—it's understanding the problem deeply: What's been tried? What failed? How can we do better? Rather than falling into "tutorial hell," I've embraced **learning through building and failing**.
+This journey taught me that **technologies are tools for solving problems, not ends in themselves**. Reinforcement learning, like any machine learning technique, is just one approach—and it too can always be replaced by better ideas. What matters isn't mastering a specific algorithm—it's understanding the problem deeply: What's been tried? What failed? How can we do better? Rather than falling into "tutorial hell," I've embraced **learning through building and failing**.
 
 My goal is to become a **generalist**—someone who can traverse disciplines, connect ideas across fields, and tackle problems from first principles without being constrained by narrow specialization.
 
