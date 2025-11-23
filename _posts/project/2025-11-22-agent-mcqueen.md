@@ -10,9 +10,9 @@ thumbnail-img: "/assets/img/Agent-Mcqueen/agent-mcqueen-thumnail.png"
 ---
 Are you an F1 fan? With the recent F1-themed movie release, racing has gained tremendous popularity, drawing many new enthusiasts into the sport. While I'm not a hardcore fan myself, I do enjoy catching clips from time to time.
 
-I've thought about why people are so captivated by racing. My answer: the dynamic driving and the strategic battles—overtaking, defending, positioning. These behaviors are nearly impossible to capture with traditional control algorithms where inputs and outputs are rigidly defined. That's where reinforcement learning comes in. Through trial and error, RL can learn the kind of dynamic racing that professional drivers exhibit.
+I've thought about why people are so captivated by racing. My answer: the dynamic driving and the strategic battles such as overtaking, defending, positioning. These behaviors are nearly impossible to capture with traditional control algorithms where inputs and outputs are rigidly defined. That's where reinforcement learning comes in. Through trial and error, RL can learn the kind of dynamic racing that professional drivers exhibit.
 
-This sparked my idea: train an agent to race competitively. I thoroughly enjoy naming projects, and when I think of racing, the movie "Cars" immediately comes to mind—specifically Lightning McQueen. Hence, Agent Mcqueen was born.
+This sparked my idea: train an agent to race competitively. I thoroughly enjoy naming projects, and when I think of racing, the movie "Cars" immediately comes to mind, specifically Lightning McQueen. Hence, Agent Mcqueen was born.
 
 ## Two-Stage Training Approach
 
@@ -23,7 +23,7 @@ I knew from the start that jumping straight into competitive racing would be fut
 
 ## Stage 1: Solo Track Completion
 
-I referenced [this GitHub repository](https://github.com/meraccos/f1tenth_reinforcement_learning) to build Stage 1. However, the code appeared incomplete—missing environment initialization and other critical components—so I had to fill in the gaps myself.
+I referenced [this GitHub repository](https://github.com/meraccos/f1tenth_reinforcement_learning) to build Stage 1. However, the code appeared incomplete like missing environment initialization and other critical components, so I had to fill in the gaps myself.
 
 The training uses the PPO (Proximal Policy Optimization) reinforcement learning algorithm. I randomly generated 450 tracks with their corresponding centerlines, and each episode randomly selects one of these maps for the agent to drive on. The agent perceives the world solely through its observations: lidar scans and linear velocity. It has no knowledge of the reward structure. If you're unfamiliar with this concept, check out my reinforcement learning taxonomy post!
 
@@ -31,11 +31,16 @@ Behind the scenes, the system uses a k-d tree to find the nearest centerline way
 
 To improve model generalization, I implemented domain randomization by randomly placing obstacles on the tracks during training. This ensured the agent could handle various track configurations and obstacles, leading to robust performance across most maps. I trained for 10 million steps, which took approximately 13 hours on my host machine.
 
-<img src="/assets/img/Agent-Mcqueen/stage1-domain-randomization.png" alt="Domain Randomization with Obstacles" style="width:100%;">
+<img src="/assets/img/Agent-Mcqueen/stage1-domain-randomization.png" alt="Domain Randomization with Obstacles" style="width:70%;">
 
-<img src="/assets/img/Agent-Mcqueen/stage1-tensorboard.png" alt="Stage 1 Training Progress" style="width:100%;">
+<img src="/assets/img/Agent-Mcqueen/stage1-tensorboard.png" alt="Stage 1 Training Progress" style="width:70%;">
 
-<video width="100%" controls>
+<video width="70%" controls>
+  <source src="/assets/img/Agent-Mcqueen/agent-mcqueen-stage1-render.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
+
+<video width="70%" controls>
   <source src="/assets/img/Agent-Mcqueen/agent-mcqueen-stage1-eval.webm" type="video/webm">
   Your browser does not support the video tag.
 </video>
@@ -44,7 +49,7 @@ There were countless trial-and-error moments, mostly related to environment init
 
 After training completed, I tested on 23 tracks from the f1tenth-racetracks dataset. The agent successfully completed 21 out of 23 tracks. This entire stage took about a week.
 
-<video width="100%" controls>
+<video width="70%" controls>
   <source src="/assets/img/Agent-Mcqueen/agent-mcqueen-stage1-f1tenth.webm" type="video/webm">
   Your browser does not support the video tag.
 </video>
@@ -63,7 +68,7 @@ The result: the agent successfully learned aggressive overtaking behavior. Howev
 
 One additional trick: I scaled down the opponent information in the observations to very small values. When I used larger scaling factors, the agent became too focused on the opponent and its driving capability deteriorated.
 
-<video width="100%" controls>
+<video width="70%" controls>
   <source src="/assets/img/Agent-Mcqueen/IMG_6667.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
