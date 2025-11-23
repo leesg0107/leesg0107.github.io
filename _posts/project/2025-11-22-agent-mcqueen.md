@@ -23,22 +23,22 @@ I knew from the start that jumping straight into competitive racing would be fut
 
 ## Stage 1: Solo Track Completion
 
+<video width="70%" controls>
+  <source src="/assets/img/Agent-Mcqueen/agent-mcqueen-stage1-render.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
+
 I referenced [this GitHub repository](https://github.com/meraccos/f1tenth_reinforcement_learning) to build Stage 1. However, the code appeared incomplete like missing environment initialization and other critical components, so I had to fill in the gaps myself.
 
 The training uses the PPO (Proximal Policy Optimization) reinforcement learning algorithm. I randomly generated 450 tracks with their corresponding centerlines, and each episode randomly selects one of these maps for the agent to drive on. The agent perceives the world solely through its observations: lidar scans and linear velocity. It has no knowledge of the reward structure. If you're unfamiliar with this concept, check out my reinforcement learning taxonomy post!
 
 Behind the scenes, the system uses a k-d tree to find the nearest centerline waypoint from the agent's pose, converts it to Frenet coordinates, and uses this for reward calculation. The agent naturally learns that following the centerline maximizes its reward.
 
-To improve model generalization, I implemented domain randomization by randomly placing obstacles on the tracks during training. This ensured the agent could handle various track configurations and obstacles, leading to robust performance across most maps. I trained for 10 million steps, which took approximately 13 hours on my host machine.
+
 
 <img src="/assets/img/Agent-Mcqueen/stage1-domain-randomization.png" alt="Domain Randomization with Obstacles" style="width:70%;">
 
-<img src="/assets/img/Agent-Mcqueen/stage1-tensorboard.png" alt="Stage 1 Training Progress" style="width:70%;">
-
-<video width="70%" controls>
-  <source src="/assets/img/Agent-Mcqueen/agent-mcqueen-stage1-render.webm" type="video/webm">
-  Your browser does not support the video tag.
-</video>
+To improve model generalization, I implemented domain randomization by randomly placing obstacles on the tracks during training. This ensured the agent could handle various track configurations and obstacles, leading to robust performance across most maps. I trained for 10 million steps, which took approximately 13 hours on my host machine.
 
 <video width="70%" controls>
   <source src="/assets/img/Agent-Mcqueen/agent-mcqueen-stage1-eval.webm" type="video/webm">
@@ -47,7 +47,10 @@ To improve model generalization, I implemented domain randomization by randomly 
 
 There were countless trial-and-error moments, mostly related to environment initialization. The centerline dataset needed to reload correctly for each randomly selected track, but improper initialization caused the agent to only drive perfectly on map #50. I had trusted the reference GitHub too much, my mistake entirely. Lesson learned.
 
+<img src="/assets/img/Agent-Mcqueen/stage1-tensorboard.png" alt="Stage 1 Training Progress" style="width:70%;">
+
 After training completed, I tested on 23 tracks from the f1tenth-racetracks dataset. The agent successfully completed 21 out of 23 tracks. This entire stage took about a week.
+
 
 <video width="70%" controls>
   <source src="/assets/img/Agent-Mcqueen/agent-mcqueen-stage1-f1tenth.webm" type="video/webm">
