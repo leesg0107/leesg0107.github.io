@@ -1,51 +1,77 @@
 ---
 layout: post
-title: Herbot
-subtitle: Autonomous Herb Managing Robot
-tags: [robot]
+title: Agent Mcqueen
+subtitle: Head-to-Head Competitive Racing using PPO
+tags: [rl, ppo, f1tenth]
 author: solgyu lee
 category: project
 mathjax: false
-thumbnail-img: "/assets/img/Herbot/Herbot.jpeg"
+thumbnail-img: "/assets/img/Agent-Mcqueen/agent-mcqueen-thumnail.png"
 ---
-Herbot is an autonomous herb management robot I developed as part of the "AI Embedded Programming" course. The system autonomously handles herb cutting and removes diseased leaves.
+Are you an F1 fan? With the recent F1-themed movie release, racing has gained tremendous popularity, drawing many new enthusiasts into the sport. While I'm not a hardcore fan myself, I do enjoy catching clips from time to time.
+
+I've thought about why people are so captivated by racing. My answer: the dynamic driving and the strategic battles—overtaking, defending, positioning. These behaviors are nearly impossible to capture with traditional control algorithms where inputs and outputs are rigidly defined. That's where reinforcement learning comes in. Through trial and error, RL can learn the kind of dynamic racing that professional drivers exhibit.
+
+This sparked my idea: train an agent to race competitively. I thoroughly enjoy naming projects, and when I think of racing, the movie "Cars" immediately comes to mind—specifically Lightning McQueen. Hence, Agent Mcqueen was born.
+
+## Two-Stage Training Approach
+
+I knew from the start that jumping straight into competitive racing would be futile. Computers are surprisingly dumb at first. So I divided the training into two stages:
+
+- **Stage 1**: Train a single agent to complete various tracks independently
+- **Stage 2**: Load two trained models from Stage 1 and have them compete head-to-head
+
+## Stage 1: Solo Track Completion
+
+I referenced [this GitHub repository](https://github.com/meraccos/f1tenth_reinforcement_learning) to build Stage 1. However, the code appeared incomplete—missing environment initialization and other critical components—so I had to fill in the gaps myself.
+
+The training uses the PPO (Proximal Policy Optimization) reinforcement learning algorithm. I randomly generated 450 tracks with their corresponding centerlines, and each episode randomly selects one of these maps for the agent to drive on. The agent perceives the world solely through its observations: lidar scans and linear velocity. It has no knowledge of the reward structure. If you're unfamiliar with this concept, check out my reinforcement learning taxonomy post!
+
+Behind the scenes, the system uses a k-d tree to find the nearest centerline waypoint from the agent's pose, converts it to Frenet coordinates, and uses this for reward calculation. The agent naturally learns that following the centerline maximizes its reward.
+
+To improve model generalization, I implemented domain randomization by randomly placing obstacles on the tracks during training. This ensured the agent could handle various track configurations and obstacles, leading to robust performance across most maps. I trained for 10 million steps, which took approximately 13 hours on my host machine.
+
+<img src="/assets/img/Agent-Mcqueen/stage1-domain-randomization.png" alt="Domain Randomization with Obstacles" style="width:100%;">
+
+<img src="/assets/img/Agent-Mcqueen/stage1-tensorboard.png" alt="Stage 1 Training Progress" style="width:100%;">
 
 <video width="100%" controls>
-  <source src="/assets/img/Herbot/Herbot-video.mp4" type="video/mp4">
+  <source src="/assets/img/Agent-Mcqueen/agent-mcqueen-stage1-eval.webm" type="video/webm">
   Your browser does not support the video tag.
 </video>
 
-## Components
+There were countless trial-and-error moments, mostly related to environment initialization. The centerline dataset needed to reload correctly for each randomly selected track, but improper initialization caused the agent to only drive perfectly on map #50. I had trusted the reference GitHub too much, my mistake entirely. Lesson learned.
 
-- Raspberry Pi 4
-- Coral USB Accelerator
-- NEMA 17 Stepper Motor
-  - Conveyor belt, aluminum profile, carriage
-- Linear Actuator
-- DC Motor
-- Pi Camera
-- Servo Motor
-- 12V to 6V Converter
-- TMC2209 Driver
-- 2x TB6612 Drivers
+After training completed, I tested on 23 tracks from the f1tenth-racetracks dataset. The agent successfully completed 21 out of 23 tracks. This entire stage took about a week.
 
-## Mechanical Design
+<video width="100%" controls>
+  <source src="/assets/img/Agent-Mcqueen/agent-mcqueen-stage1-f1tenth.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
 
-The robot's manipulation system consists of four motors working together. A servo motor controls the gripper mechanism for cutting herbs. To enable full spatial movement, the gripper traverses along the Z-axis using a NEMA 17 stepper motor connected to a belt-driven conveyor system, while a linear actuator provides X-axis motion. Since plants require inspection from multiple angles, I integrated a DC motor beneath the plant pot to rotate it, allowing the robot to access all sides.
+## Stage 2: Competitive Racing
 
-## Power and Motor Control
+Now the real challenge began. I initially thought switching from PPO to MAPPO (Multi-Agent PPO) would be straightforward(how naive). Transitioning from single-agent RL to multi-agent RL (MARL) completely changes the game. Adding just one agent introduces a cascade of problems: non-stationarity, credit assignment, and more. Moreover, MAPPO uses cumulative rewards, making it suitable for cooperative settings. But racing is competitive with a zero-sum reward structure. MAPPO was fundamentally incompatible with my task.
 
-The system runs on three different motor types requiring distinct power requirements: the NEMA 17 (12V), linear actuator (6V), and DC motor (6V). I used a 12V power supply with three independent motor drivers: TMC2209 for the stepper motor, and two TB6612 drivers for the linear actuator and DC motor respectively. Since mixing 12V and 6V directly isn't feasible, I incorporated a DC-DC converter to step down 12V to 6V. Power distribution is managed through WAGO terminal blocks, which provide a clean, solder-free solution for splitting the supply into separate 12V and 6V rails.
+I restructured the code to handle zero-sum rewards, but whenever I started training both agents, they would eventually lose even their basic driving ability. This was particularly frustrating since I loaded perfectly trained models from Stage 1, only to watch them regress.
 
-## Motor Calibration
+I made a drastic decision: abandon MARL entirely. Instead, I froze one agent and trained only the other. But this still had issues, likely due to non-stationarity, a chronic MARL problem. The agent perceives the world only through observations, meaning it sees the other agent as just another obstacle, like a wall. But this obstacle keeps moving, making the environment continuously shift from the agent's perspective. This disrupts learning significantly.
 
-Hardware assembly was just the beginning. Each motor required careful calibration to determine operational parameters: belt travel range, step counts for precise positioning, gripper opening/closing angles, linear actuator movement increments, and optimal DC motor speed for stable plant rotation. I developed dedicated calibration routines for each motor to establish these values.
+So I added the opponent agent's pose to the observations. This makes sense like F1 drivers don't race without knowing who they're competing against. Allowing the agent to observe its opponent felt like a natural addition.
 
-## Web Interface
+The result: the agent successfully learned aggressive overtaking behavior. However, I imposed one condition. Since both agents used the same model, they drove equally well. Having the frozen agent run at full speed made winning nearly impossible. So I reduced the frozen agent's speed to 80%.
 
-<img src="/assets/img/Herbot/Herbot-web.PNG" alt="Herbot Web Interface" style="width:100%;">
+One additional trick: I scaled down the opponent information in the observations to very small values. When I used larger scaling factors, the agent became too focused on the opponent and its driving capability deteriorated.
 
-To make the system more accessible, I built a web interface for Herbot. Users can view all captured images, access system logs, and remotely control the robot's operations. The core functionality is the "scan" feature, which systematically photographs the plant from multiple angles. I trained two vision models—one for herb species identification and another for disease detection—on my local machine, then deployed them to run on the Raspberry Pi 4 accelerated by the Coral USB device.
+<video width="100%" controls>
+  <source src="/assets/img/Agent-Mcqueen/agent-mcqueen-stage2.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
 
+## An Interesting Discovery
 
-<img src="/assets/img/Herbot/Herbot-web-log.PNG" alt="Herbot Web Logs" style="width:100%;">
+During my extensive testing in Stage 2, I made an interesting observation in my `render_initial.py` script. I wrote this to render the initial state, allowing me to intuitively check for wall collisions and spawn positions. After getting all the settings right and running it a few times, something remarkable happened: with Agent 0 (frozen) running at 80% speed, Agent 1 (trainable) naturally overtook Agent 0—without any additional training. This gave me confidence that I didn't need to heavily weight overtaking behavior. I simply reduced the opponent information scaling factor even further and proceeded with training.
+
+## Conclusion(working on...)
+
+All code will be uploaded to GitHub. However, I need some time to clean it up and make it immediately usable for others who want to test it.
