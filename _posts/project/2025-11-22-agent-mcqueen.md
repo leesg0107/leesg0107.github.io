@@ -64,7 +64,7 @@ The result: the agent successfully learned aggressive overtaking behavior. Howev
 One additional trick: I scaled down the opponent information in the observations to very small values. When I used larger scaling factors, the agent became too focused on the opponent and its driving capability deteriorated.
 
 <video width="100%" controls>
-  <source src="/assets/img/Agent-Mcqueen/agent-mcqueen-stage2.webm" type="video/webm">
+  <source src="/assets/img/Agent-Mcqueen/IMG_6667.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
