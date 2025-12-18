@@ -374,6 +374,45 @@ During my extensive testing in Stage 2, I made an interesting observation in my 
 
 ---
 
+## Limitations
+
+While Agent Mcqueen successfully demonstrates competitive racing behavior, several limitations remain:
+
+| Limitation | Description | Impact |
+|------------|-------------|--------|
+| **Lack of Strategy Diversity** | Both agents load the same Stage 1 model, resulting in identical base strategies | Homogeneous racing without unexpected variables |
+| **Incomplete Stage 2 Evaluation** | No rigorous quantitative evaluation of overtaking improvement | Difficult to measure exact performance gains |
+| **Centerline vs Racing Line** | Training follows centerline rather than optimal racing trajectory | Suboptimal lap times and cornering |
+| **Exploration over Mastery** | Training on 450 random tracks instead of mastering specific tracks | More like exploration than true racing |
+
+### Missing Racing Elements
+
+Real racing involves far more complexity than what Agent Mcqueen currently handles:
+
+<div class="mermaid">
+flowchart TB
+    subgraph MISSING["Elements Not Modeled"]
+        ACCEL["Acceleration<br/>Dynamics"]
+        BRAKE["Braking<br/>Strategy"]
+        CORNER["Corner Entry<br/>& Apex"]
+        TIRE["Tire<br/>Management"]
+        DEFEND["Defensive<br/>Positioning"]
+    end
+
+    subgraph CURRENT["Current Capabilities"]
+        DRIVE["Basic Driving"]
+        OVERTAKE["Simple Overtaking"]
+    end
+
+    MISSING -.->|"Future Work"| CURRENT
+</div>
+
+Professional F1 drivers study their tracks until they can drive them blindfolded. Agent Mcqueen, in contrast, encounters new tracks constantly—making it more of an explorer than a racer. The nuanced decision-making that makes racing exciting (when to brake, how to defend a position, optimal corner entry angles) remains beyond the current implementation.
+
+A potential improvement would be combining traditional control algorithms for low-level vehicle dynamics with RL for high-level strategic decisions. This hierarchical approach could enable more sophisticated competitive behavior.
+
+---
+
 ## Conclusion
 
 Agent Mcqueen demonstrates that competitive racing AI doesn't require complex MARL frameworks. By combining:
@@ -384,5 +423,7 @@ Agent Mcqueen demonstrates that competitive racing AI doesn't require complex MA
 4. **Appropriate reward shaping** for competitive behavior
 
 We can achieve aggressive, dynamic racing behavior that captures the essence of what makes motorsport exciting.
+
+However, this project also revealed how much complexity real racing entails. The current approach produces functional overtaking but lacks the strategic depth that makes professional racing truly compelling. Future iterations could benefit from racing line optimization, track-specific training, and hierarchical control architectures.
 
 All code will be uploaded to GitHub. However, I need some time to clean it up and make it immediately usable for others who want to test it.
