@@ -7,62 +7,62 @@ permalink: /aboutme/
 
 ## 👋 Hello, I'm Solgyu Lee
 
-I'm a passionate **junior student** at Soongsil University in Seoul, South Korea, specializing in **Multi-Agent Reinforcement Learning (MARL)** with a focus on **robotics applications**.
+I'm a passionate **junior student** at Soongsil University in Seoul, South Korea, specializing in **Multi-Agent Reinforcement Learning (MARL)** with a focus on **robotics applications**. 
 
-My research interests lie in the intersection of **Robotics** and **Multi-Agent Reinforcement Learning (MARL)**. I am currently working on [multi-agent systems](/study/marl), [reinforcement learning](/study/rl), and [robotics applications](/study/robotics).
+### 🤖 My Research Focus
 
-Meanwhile, I am a passionate learner who enjoys building robots and exploring new technologies. Check out my [projects](/projects) to see some of my work, or visit my [journey](/journey/all) to follow my learning adventures.
+My primary interest lies in **Multi-Agent Reinforcement Learning**, particularly its applications in **robotics systems**. I'm fascinated by how multiple intelligent agents can collaborate, compete, and learn from each other to solve complex real-world problems. However, my ultimate goal extends beyond theoretical research—I aim to become a **well-rounded roboticist** who can bridge the gap between cutting-edge AI algorithms and practical robotic implementations.
 
-**Contact:** [leesg0107@gmail.com](mailto:leesg0107@gmail.com) | [GitHub](https://github.com/leesg0107) | [LinkedIn](https://linkedin.com/in/leesg17)
+### 🔧 From Theory to Practice
+
+While I dive deep into MARL algorithms and neural networks, I believe that understanding the **physical aspects of robotics** is equally crucial. That's why I'm actively involved in:
+
+- **Hardware Projects**: Building robots from scratch to understand mechanical constraints
+- **Electronics**: Learning soldering and circuit design for custom robotic components  
+- **Systems Integration**: Combining AI software with real robotic hardware
+
+This hands-on approach helps me design more practical and implementable MARL solutions for real-world robotic systems.
+
+### My skills  
+
+|-------------|-------------------|----------|
+| Programming | Frameworks & Tools | Hardware |
+| Python      | PyTorch           | Soldering |
+| Rust        | ROS2              | Robot Assembly |
+| C++         | Isaac Sim         |  |
+|       | Gazebo            |  |
+
+### 🎯 Vision & Goals
+
+I believe the future of robotics lies in **intelligent multi-robot systems** that can:
+- Collaborate efficiently in dynamic environments
+- Learn and adapt from collective experiences  
+- Operate safely alongside humans
+- Scale from laboratory settings to real-world applications
+
+My mission is to contribute to this future by developing MARL algorithms that are not just theoretically sound, but also **practically deployable** in real robotic systems.
+
+### Biography 
+**2002.1.7** Born in Seoul, Korea 🇰🇷<br>
+**2021.3** Entered Soongsil University<br>
+**2022.5.2** Military service begins<br>
+**2023.10.27** Discharged from military service<br>
+**2024.3** Returned to university as sophomore<br>
+**2025** Currently junior, focusing on MARL & Robotics<br>
+
+
+### 🌟 Who Am I 
+
+I'm a **curious explorer** driven by the desire to understand how things work—from the mathematical foundations of reinforcement learning to the mechanical intricacies of robotic joints. 
+
+I believe in **learning by doing**. Whether it's implementing a new MARL algorithm or soldering components for a custom robot, I find that hands-on experience provides insights that theory alone cannot offer.
+
+**Life Philosophy**: *Every challenge, whether it's debugging a stubborn RL algorithm or troubleshooting a malfunctioning robot, is an opportunity to grow. I've learned that embracing both successes and setbacks with curiosity rather than frustration leads to deeper understanding and better solutions.*
+
+The intersection of **artificial intelligence** and **physical robotics** excites me because it represents the ultimate challenge: creating machines that can think, learn, and act intelligently in our complex, unpredictable world.
 
 ---
 
-## Research Focus: Heterogeneous Multi-Robot Systems
 
-My primary interest lies in **Multi-Agent Reinforcement Learning (MARL)** and its applications in **heterogeneous robot systems**. I believe the truly transformative moment in robotics will come when we can effectively replace labor-intensive human work with intelligent robotic systems.
 
-Consider agriculture, for example: planting seeds across vast fields, monitoring crop health, and harvesting—all require different capabilities. **No single type of robot can handle all these complex tasks**. What we need are diverse robots with complementary skills working in coordination.
 
-This is why heterogeneous multi-robot systems fascinate me. Building such systems requires integrating multiple technologies beyond just basic RL or MARL algorithms:
-
-- **Graph Neural Networks (GNN)** for modeling agent relationships
-- **Large Language Models (LLM)** integration for high-level task understanding
-- **Hierarchical architectures** for multi-level coordination
-- **Hardware integration** bridging simulation and reality
-
-I'm actively studying and researching these interconnected areas, going beyond single-algorithm approaches to build truly practical systems.
-
-## Skills
-
-**Programming Languages:** Python, Rust, C++
-
-**Frameworks & Tools:** PyTorch, ROS2, Isaac Sim, Gazebo
-
-**Hardware:** Soldering, Robot Design, Electronics
-
-## Why I Aim to Be a Generalist
-
-What drew me to reinforcement learning was its elegance: **learning optimal behaviors through trial and error**. But through countless simulation experiments, I realized something crucial—**simulations alone aren't enough**. To make robotics meaningful, I needed to build real robots. This meant diving into soldering, electrical engineering, mechanical design. The more challenging it gets, the more I'm drawn to it.
-
-This journey taught me that **technologies are tools for solving problems, not ends in themselves**. Reinforcement learning, like any machine learning technique, is just one approach—and it too can always be replaced by better ideas. What matters isn't mastering a specific algorithm—it's understanding the problem deeply: What's been tried? What failed? How can we do better? Rather than falling into "tutorial hell," I've embraced **learning through building and failing**.
-
-My goal is to become a **generalist**—someone who can traverse disciplines, connect ideas across fields, and tackle problems from first principles without being constrained by narrow specialization.
-
-## Biography
-
-**2002.1.7** Born in Seoul, Korea 🇰🇷
-**2021.3** Entered Soongsil University
-**2022.5.2** Military service begins
-**2023.10.27** Discharged from military service
-**2024.3** Returned to university as sophomore
-**2025** Currently junior, focusing on MARL & Robotics / President of Soongsil American Football team CRUSADERS
-
-## Who Am I
-
-I'm energetic, a problem-solver, and someone who genuinely enjoys the work—whether it's studying algorithms, building robots, or diving into new fields. Beyond the lab, I play for Soongsil University's American football team and love staying active through weightlifting, running, and basketball.
-
-My greatest strength? **I don't shy away from anything**. Every experience teaches me something valuable, even the difficult ones. Why not try it? (As long as it's not completely foolish.) This mindset lets me jump into unfamiliar situations without hesitation.
-
-My weakness? Being a bit of a "yes man"—sometimes I take on more than I should without fully thinking through the consequences. I'm actively working on this through hard-learned lessons, finding the balance between saying yes to opportunities and being strategic about commitments.
-
-**Life Philosophy:** *Every challenge is an opportunity to grow. I've learned that embracing both successes and setbacks with curiosity rather than frustration leads to deeper understanding and better solutions.*
