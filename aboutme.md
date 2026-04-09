@@ -7,59 +7,38 @@ permalink: /aboutme/
 
 ## 👋 Hello, I'm Solgyu Lee
 
-I'm a passionate **junior student** at Soongsil University in Seoul, South Korea, specializing in **Multi-Agent Reinforcement Learning (MARL)** with a focus on **robotics applications**. 
+I'm a **senior student** at Soongsil University in Seoul, South Korea, studying robotics and intelligent systems.
 
-### 🤖 My Research Focus
+### 🎯 Vision
 
-My primary interest lies in **Multi-Agent Reinforcement Learning**, particularly its applications in **robotics systems**. I'm fascinated by how multiple intelligent agents can collaborate, compete, and learn from each other to solve complex real-world problems. However, my ultimate goal extends beyond theoretical research—I aim to become a **well-rounded roboticist** who can bridge the gap between cutting-edge AI algorithms and practical robotic implementations.
+Foundation models are rapidly advancing, and their application to robotics is already producing impressive demonstrations. A humanoid can now recognize objects, understand commands, and reason about its surroundings. But **recognition is not execution**. For that humanoid to actually pick up an object—reliably, safely, in an unstructured environment—it needs a deep understanding of dynamics, control theory, and reinforcement learning. The gap between "seeing" and "doing" is where the real engineering challenge lies.
 
-### 🔧 From Theory to Practice
+This is true across every platform. A drone must master flight dynamics before it can manipulate. A quadruped must solve balance and locomotion before it can navigate rubble. Each robot brings its own physical constraints, and no foundation model alone can bridge that gap without rigorous research in **dynamics, RL, and control**.
 
-While I dive deep into MARL algorithms and neural networks, I believe that understanding the **physical aspects of robotics** is equally crucial. That's why I'm actively involved in:
+I'm taking my first steps toward that challenge—researching dynamics, RL, and control across different platforms, and beginning to explore how **diverse robots could be operated under a unified system**. There's a long way to go, but every project I build brings me closer to understanding what it takes to make robots effective tools in our society.
 
-- **Hardware Projects**: Building robots from scratch to understand mechanical constraints
-- **Electronics**: Learning soldering and circuit design for custom robotic components  
-- **Systems Integration**: Combining AI software with real robotic hardware
+### 🤖 What I've Built & What I'm Building
 
-This hands-on approach helps me design more practical and implementable MARL solutions for real-world robotic systems.
+**Herbot** — A university project: a plant-care robot running YOLO on a Raspberry Pi 5 to classify rotten vs. healthy leaves and prune them in real-time. My first experience deploying perception models on edge devices for physical action.
 
-### My skills  
+**Agent McQueen** — An autonomous racing agent trained with PPO and curriculum learning. No classical control algorithms—the agent learns to complete laps and even overtake opponents purely through RL.
 
-|-------------|-------------------|----------|
-| Programming | Frameworks & Tools | Hardware |
-| Python      | PyTorch           | Soldering |
-| Rust        | ROS2              | Robot Assembly |
-| C++         | Isaac Sim         |  |
-|       | Gazebo            |  |
+**Soltrone** — Built a drone from scratch—frame, electronics, flight controller—and completed successful flight tests. Understanding a drone from the hardware up informs every aerial project that followed.
 
-### 🎯 Vision & Goals
+**TALON** *(in progress)* — Drone landing gear is dead weight after takeoff. TALON reimagines it as a functional gripper, enabling drones to grasp and transport boxes mid-flight. Trained with PPO, SAC, and curriculum learning to handle the coupled dynamics of flight and manipulation.
 
-I believe the future of robotics lies in **intelligent multi-robot systems** that can:
-- Collaborate efficiently in dynamic environments
-- Learn and adapt from collective experiences  
-- Operate safely alongside humans
-- Scale from laboratory settings to real-world applications
+**GarageNet** *(in progress)* — A system where individual robots and a central LLM work as a team, allowing users to operate robotic systems as intuitively as a chat interface. Currently focused on drones: semantic VSLAM for environmental mapping, with on-device inference enabling autonomous reasoning and execution at the edge.
 
-My mission is to contribute to this future by developing MARL algorithms that are not just theoretically sound, but also **practically deployable** in real robotic systems.
-
-### Biography 
-**2002.1.7** Born in Seoul, Korea 🇰🇷<br>
-**2021.3** Entered Soongsil University<br>
-**2022.5.2** Military service begins<br>
-**2023.10.27** Discharged from military service<br>
-**2024.3** Returned to university as sophomore<br>
-**2025** Currently junior, focusing on MARL & Robotics<br>
+Each project pushed me into a different platform and a different problem—from ground-based manipulation to aerial dynamics to multi-robot orchestration. That progression wasn't planned, but looking back, it traces a clear path toward my vision: **diverse robots, unified intelligence**.
 
 
 ### 🌟 Who Am I 
 
-I'm a **curious explorer** driven by the desire to understand how things work—from the mathematical foundations of reinforcement learning to the mechanical intricacies of robotic joints. 
+I'm someone who thrives on **new challenges and creative problem-solving**. When I face a problem no one has solved before, I don't look for a safe path—I ask a new question. *What if we approached it from a completely different angle?* That instinct to reframe and reimagine is what drives my best work.
 
-I believe in **learning by doing**. Whether it's implementing a new MARL algorithm or soldering components for a custom robot, I find that hands-on experience provides insights that theory alone cannot offer.
+I value **teamwork** deeply. Serving in the military and leading a football team as club president taught me one thing clearly: when every member shares **a single, common goal**, the synergy is extraordinary. I believe the best teammate is someone who **walks alongside you**—not ahead, not behind, but right next to you, moving toward the same destination together.
 
-**Life Philosophy**: *Every challenge, whether it's debugging a stubborn RL algorithm or troubleshooting a malfunctioning robot, is an opportunity to grow. I've learned that embracing both successes and setbacks with curiosity rather than frustration leads to deeper understanding and better solutions.*
-
-The intersection of **artificial intelligence** and **physical robotics** excites me because it represents the ultimate challenge: creating machines that can think, learn, and act intelligently in our complex, unpredictable world.
+Whether it's designing a new RL reward function or reimagining a drone's landing gear as a gripper, I'd rather ask *"what if?"* and fail than follow the safe path and never find out.
 
 ---
 

@@ -7,7 +7,6 @@ author: solgyu
 category: journey
 subcategory: dev
 ---
-
 I believe VSLAM is going to be more dominant in computer vision. LiDAR is actually the most popular sensor for robotic mapping, but the problem is that LiDAR is very expensive. In contrast, VSLAM doesn't require expensive LiDAR—it only needs cameras that are even found in your phone. The collaboration of multiple cameras and IMU sensors can create a map. The reason VSLAM is even better than SLAM using LiDAR is that you can utilize these cameras for more than just making maps—you can use them for recording videos too. Isn't that awesome?
 
 However, there are still some limitations to VSLAM. LiDAR shoots many beams into the environment and calculates the reflected beams to create a map. In contrast, cameras have to estimate depth from images and transform them into a map. Honestly, VSLAM can't make as sophisticated a map compared to LiDAR, so we need other technologies to complement these limitations.
@@ -37,6 +36,7 @@ depth = (fx × baseline) / disparity
 ```
 
 Here's what each term means:
+
 - **fx** = 554.25 (focal length in pixels)
 - **baseline** = 0.12m (distance between the two cameras)
 - **disparity** = how much a pixel shifts between left and right images
@@ -44,6 +44,7 @@ Here's what each term means:
 Think of it this way: when you look at something close, your left eye and right eye see it at very different positions. But when you look at something far away, both eyes see it almost at the same position. That "position difference" is disparity, and it tells us how far away objects are.
 
 With my camera setup, the depth range works out to:
+
 - **Minimum depth** (disparity=128): about 0.52m
 - **Maximum depth** (disparity=1): about 66m
 - **Practical range**: 0.3m ~ 15m
@@ -55,9 +56,11 @@ With my camera setup, the depth range works out to:
 Semi-Global Block Matching does three important jobs:
 
 ### 2.1 Block Matching
+
 I use front_left and front_right cameras, so I constantly get 2 images. The algorithm compares similarity between them using a `blockSize × blockSize` window. It's like sliding a small square across both images asking "does this patch look the same?"
 
 ### 2.2 Cost Function
+
 For each pixel, we calculate how "expensive" each disparity guess is:
 
 ```
@@ -65,10 +68,12 @@ E(D) = Σ(C(p, D_p) + Σ P1·T[|D_p - D_q| = 1] + P2·T[|D_p - D_q| > 1])
 ```
 
 The P1 and P2 terms are penalties. P1 penalizes small disparity changes (keeps things smooth), and P2 penalizes big jumps (prevents wild guesses). In my setup:
+
 - **P1** = 8 × 3 × blockSize² (small change penalty)
 - **P2** = 32 × 3 × blockSize² (big jump penalty)
 
 ### 2.3 Semi-Global Optimization
+
 Instead of just looking at one direction, the algorithm accumulates costs along 8 different paths (up, down, left, right, and diagonals). This makes the depth map much more consistent than simple block matching.
 
 ---
@@ -100,6 +105,7 @@ Z = depth
 Where (cx, cy) is the optical center and (fx, fy) are focal lengths. This is how we figure out where objects actually are in 3D space.
 
 For detected objects, we can estimate real-world size:
+
 ```
 object_width = bbox_width × depth / fx
 object_height = bbox_height × depth / fy
@@ -114,20 +120,24 @@ So if YOLO detects a person, we can tell not just "there's a person" but "there'
 VSLAM alone isn't enough for a drone. Visual odometry runs at maybe 10-15Hz and can drift. IMU runs at 250Hz and doesn't drift but has noise. EKF combines them into something better than either alone.
 
 ### State Vector (15 dimensions)
+
 ```
 x = [x, y, z, roll, pitch, yaw, vx, vy, vz, ωx, ωy, ωz, ax, ay, az]ᵀ
 ```
+
 Position, orientation, velocity, angular velocity, and acceleration—everything we need to know where the drone is and how it's moving.
 
 ### The Two-Step Dance
 
 **Prediction (when IMU arrives at 250Hz):**
+
 ```
 x̂_predicted = f(x̂_previous, IMU_data)
 P_predicted = F × P_previous × Fᵀ + Q
 ```
 
 **Update (when VSLAM arrives at 10-15Hz):**
+
 ```
 K = P_predicted × Hᵀ × (H × P_predicted × Hᵀ + R)⁻¹
 x̂_updated = x̂_predicted + K × (measurement - expected)
@@ -169,16 +179,20 @@ Without this, your drone thinks "up" is "down" and things get exciting very quic
 RTAB-Map handles the SLAM backend. Here's how it works:
 
 ### Feature Extraction
+
 Uses GFTT (Good Features To Track) + BRIEF descriptors. I set it to extract up to 5000 features per frame with a minimum of 5 inliers required for a valid pose estimate.
 
 ### Motion Estimation
+
 Frame-to-Map matching (Odom/Strategy: 0):
+
 1. Extract features from current frame
 2. Match against accumulated map features
 3. Use PnP algorithm to estimate camera pose
 4. RANSAC removes outliers
 
 ### Loop Closure Detection
+
 When the drone returns to a previously visited place, RTAB-Map detects it using Bag-of-Words visual similarity. This corrects accumulated drift and keeps the map consistent.
 
 ---
@@ -202,6 +216,7 @@ RGB Image → YOLO → 2D Bounding Boxes
 ```
 
 ### Depth Sampling Strategy
+
 Raw depth at the exact center of a bounding box can be noisy. Instead, I sample a 10×10 pixel region around the center and take the median of valid depths. This robust approach ignores outliers and gives a more reliable distance estimate.
 
 ```python
@@ -236,6 +251,4 @@ This Semantic VSLAM system combines several technologies into a coherent pipelin
 4. **Semantic Mapping**: YOLO detection + depth projection → 3D semantic objects
 5. **PX4 Integration**: FLU→FRD coordinate transformation for drone control
 
-I mentioned Tesla earlier as an example—they use Occupancy Networks, but the core idea is similar: multiple cameras + AI = understanding the 3D world without expensive LiDAR.
-
-Next step: integrating Semantic VSLAM with GPS to get even more precise 3D maps. VSLAM handles local accuracy while GPS provides global positioning—combining them should eliminate long-term drift and enable mapping across larger areas.
+Next step: integrating Semantic VSLAM with GPS to get even more precise 3D maps. VSLAM handles local accuracy while GPS provides global positioning-combining them should eliminate long-term drift and enable mapping across larger areas.
