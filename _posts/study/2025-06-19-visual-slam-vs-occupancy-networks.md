@@ -18,7 +18,8 @@ What makes these two exciting is simple: both promise localization and mapping w
   - Outputs: Accurate trajectory, sparse/semi‑dense map, loop‑closure to rein in drift.
   - Canon: ORB‑SLAM2/3, DSO, VINS‑Fusion, OKVIS.
 
-- Occupancy Networks (neural occupancy/implicit fields, BEV occupancy)
+- Occupancy Networks (learned occupancy prediction: BEV / 3D-voxel free-space)
+  - Name clash worth flagging: the original *Occupancy Networks* (Mescheder et al., 2019) is an implicit-field method for reconstructing watertight 3D **surfaces**. In robotics and driving the same term gets reused loosely for learned **occupancy-grid prediction** — free-space vs. obstacles, e.g. Tesla's camera-only occupancy net — and that's the sense this comparison uses.
   - A network predicts occupancy probabilities over 3D coordinates or a BEV grid, yielding free‑space vs obstacles. Needs training data; infers 3D from multi‑view or sequential camera frames.
   - Pros: Data‑driven robustness to poor texture/lighting, easy to fuse semantics, dense map outputs.
   - Cons: Training cost and inference compute, harder real‑time, generalization concerns.
@@ -96,5 +97,5 @@ Mini scorecard (very subjective):
 
 - ORB‑SLAM3: [https://arxiv.org/abs/2007.11898](https://arxiv.org/abs/2007.11898)
 - VINS‑Fusion: [https://arxiv.org/abs/1712.00036](https://arxiv.org/abs/1712.00036)
-- Occupancy Networks: [https://arxiv.org/abs/1812.03828](https://arxiv.org/abs/1812.03828)
-- Tesla Occupancy Network(overview): [https://www.tesla.com/AI](https://www.tesla.com/AI)
+- Occupancy Networks — Mescheder et al., 2019 (implicit 3D surface reconstruction; origin of the name): [https://arxiv.org/abs/1812.03828](https://arxiv.org/abs/1812.03828)
+- Camera-based occupancy for driving / BEV — Tesla AI (overview): [https://www.tesla.com/AI](https://www.tesla.com/AI)
