@@ -7,7 +7,7 @@ author: solgyu lee
 category: project
 mathjax: true
 mermaid: true
-thumbnail-img: "/assets/img/Agent-Mcqueen/agent-mcqueen-thumnail.png"
+thumbnail-img: "/assets/img/Agent-Mcqueen/agent-mcqueen-f1tenth.png"
 ---
 Are you an F1 fan? With the recent F1-themed movie release, racing has gained tremendous popularity, drawing many new enthusiasts into the sport. While I'm not a hardcore fan myself, I do enjoy catching clips from time to time.
 

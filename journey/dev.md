@@ -7,7 +7,7 @@ permalink: /journey/dev/
 
 <div class="posts-list">
 {% assign journey_posts = site.posts | where: "category", "journey" %}
-{% assign dev_posts = journey_posts | where_exp: "post", "post.tags contains 'dev'" %}
+{% assign dev_posts = journey_posts | where: "subcategory", "dev" %}
 {% if dev_posts.size > 0 %}
   {% for post in dev_posts %}
   <article>
