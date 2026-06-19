@@ -42,6 +42,19 @@ Whether it's designing a new RL reward function or reimagining a drone's landing
 
 ---
 
+### 📅 Biography
+
+<div class="biography">
+  <strong>2002.1.7</strong> Born in Seoul, Korea 🇰🇷<br>
+  <strong>2021.3</strong> Entered Soongsil University<br>
+  <strong>2022.5.2</strong> Military service begins<br>
+  <strong>2023.10.27</strong> Discharged from military service<br>
+  <strong>2024.3</strong> Returned to university as sophomore<br>
+  <strong>2025–2026</strong> Senior year, focusing on RL for aerial manipulation &amp; robotics research / President of Soongsil American Football team CRUSADERS
+</div>
+
+---
+
 
 
 
