@@ -15,7 +15,7 @@ Think about it this way: if you understand the historical flow and evolution of 
 
 ## 1. Model-Free vs Model-Based
 
-You probably already know how the RL pipeline works like an agent interacts with an environment, receives rewards, and learns. The first fundamental question is: **Does the agent know anything about how the environment works?**
+You probably already know how the RL pipeline works—an agent interacts with an environment, receives rewards, and learns. The first fundamental question is: **Does the agent know anything about how the environment works?**
 
 ### Model-Based RL
 
@@ -32,7 +32,7 @@ Think of it like playing chess with the rulebook. You know exactly what happens 
 
 **The agent doesn't know the environment dynamics or reward structure.**
 
-The agent learns purely from **trial and error ** like learning to ride a bike. You don't need to understand the physics of balance and momentum; you just keep trying until you get it right. 
+The agent learns purely from **trial and error**—like learning to ride a bike. You don't need to understand the physics of balance and momentum; you just keep trying until you get it right.
 
 ### Important Clarification: Prior Data ≠ Model-Based
 
@@ -45,7 +45,7 @@ That's it! Pretty straightforward, right?
 
 ## 2. On-Policy vs Off-Policy
 
-Let's think about what a policy actually is. **A policy is like the agent's brain like it decides what actions to take.** Now, there are two types of policies we need to understand:
+Let's think about what a policy actually is. **A policy is like the agent's brain—it decides what actions to take.** Now, there are two types of policies we need to understand:
 
 - **Target Policy** (\\(\pi_{target}\\)): The policy the agent is trying to learn and improve
 - **Behavior Policy** (\\(\pi_{behavior}\\)): The policy the agent actually uses to collect data
@@ -169,7 +169,7 @@ For example, teaching a robot to organize a warehouse:
 
 **Key idea**: The agent builds foundational skills before tackling complex tasks. This prevents frustration (getting stuck) and speeds up learning dramatically.
 
-Meta-Learning (Learning to Learn)
+### Meta-Learning (Learning to Learn)
 
 Humans are incredible learners. Once you learn to ride a bicycle, learning to ride a motorcycle is much easier. Once you speak one programming language, picking up another takes days, not years. **Meta-learning teaches agents how to adapt quickly to new tasks based on experience with related tasks.**
 
@@ -183,7 +183,7 @@ where \\(\theta^*\\) are meta-parameters that can quickly adapt to any new task 
 
 **Example**: Train a robot on 100 different manipulation tasks (picking up cups, opening doors, turning knobs). Then when you give it a new task (opening a jar), it can learn it in just a few tries because it has meta-knowledge about manipulation.
 
-Hierarchical RL
+### Hierarchical RL
 
 Some tasks are naturally hierarchical. Think about "making breakfast":
 
@@ -210,7 +210,7 @@ What if multiple agents are learning simultaneously in the same environment? Thi
 - **Scalability**: How many agents can be effectively trained?
 - **Equilibrium selection**: Which equilibrium should be selected? This depends on game-theoretic considerations and reward structure.
 
-Other Important Concepts
+### Other Important Concepts
 
 **Offline RL (Batch RL)**: Learn from a fixed dataset without environment interaction. Critical for safety-critical domains (healthcare, autonomous driving) where exploration can be dangerous.
 

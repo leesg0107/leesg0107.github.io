@@ -8,7 +8,7 @@ category: study
 mathjax: true
 ---
 
- What makes these two exciting is simple: both promise localization and mapping with plain cameras—no LiDAR. LiDAR is fantastic, but it’s heavy, power‑hungry, and not always practical. Cameras are cheap, ubiquitous, and versatile; with the right algorithms, they can do a lot. So let’s have a friendly duel: Visual SLAM vs Occupancy Networks. We won’t crown a universal champion—trade‑offs and use cases decide—but the comparison is fun and useful.
+What makes these two exciting is simple: both promise localization and mapping with plain cameras—no LiDAR. LiDAR is fantastic, but it’s heavy, power‑hungry, and not always practical. Cameras are cheap, ubiquitous, and versatile; with the right algorithms, they can do a lot. So let’s have a friendly duel: Visual SLAM vs Occupancy Networks. We won’t crown a universal champion—trade‑offs and use cases decide—but the comparison is fun and useful.
 
 ## Warm-up: Who are they?
 
@@ -92,7 +92,7 @@ Mini scorecard (very subjective):
 - Want richer scene understanding (free‑space/semantics/dense map) → Occupancy.
 - Honest answer: combine them—SLAM for pose, occupancy for space.
 
-## 참고 자료
+## References
 
 - ORB‑SLAM3: [https://arxiv.org/abs/2007.11898](https://arxiv.org/abs/2007.11898)
 - VINS‑Fusion: [https://arxiv.org/abs/1712.00036](https://arxiv.org/abs/1712.00036)
