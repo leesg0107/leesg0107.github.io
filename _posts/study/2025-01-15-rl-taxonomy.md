@@ -246,9 +246,9 @@ Now we can position all major RL algorithms in this 3D space:
 | **VDN**              | Free  | Off    | Value (Multi-Agent)        |
 | **MADDPG**           | Free  | Off    | Actor-Critic (Multi-Agent) |
 | **Value Iteration**  | Based | -      | Value                      |
-| **Policy Iteration** | Based | -      | Value                      |
+| **Policy Iteration** | Based | -      | Policy                     |
 | **MCTS**             | Based | -      | Search + Value             |
-| **MuZero**           | Based | Off    | Value (Learned Model)      |
+| **MuZero**           | Based | -      | Search + Value (Learned Model) |
 | **AlphaZero**        | Based | -      | Search + Policy            |
 | **Dyna-Q**           | Based | Off    | Value (Model + RL)         |
 | **PILCO**            | Based | On     | Policy                     |
