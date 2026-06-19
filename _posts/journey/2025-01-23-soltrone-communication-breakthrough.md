@@ -6,6 +6,7 @@ tags: [soltrone, drone, raspberry-pi, ardupilot, betaflight, communication]
 author: solgyu
 category: journey
 subcategory: dev
+thumbnail-img: "/assets/img/cards/soltrone-log2.jpg"
 ---
 
 I used to think “if the motors spin, I’m basically done.” Then I tried to make the drone talk to everything else. The week started with Betaflight humming along nicely—motors armed, basic control behaved—and ended with me switching the entire firmware stack to ArduPilot because I kept head‑butting the limits I didn’t know were there.

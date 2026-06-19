@@ -6,6 +6,7 @@ tags: [drone, vslam, yolo, semantic, ue5, ros2, rviz2]
 author: solgyu
 category: journey
 subcategory: dev
+thumbnail-img: "/assets/img/semantic_vslam_pipeline.png"
 ---
 I believe VSLAM is going to be more dominant in computer vision. LiDAR is actually the most popular sensor for robotic mapping, but the problem is that LiDAR is very expensive. In contrast, VSLAM doesn't require expensive LiDAR—it only needs cameras that are even found in your phone. The collaboration of multiple cameras and IMU sensors can create a map. The reason VSLAM is even better than SLAM using LiDAR is that you can utilize these cameras for more than just making maps—you can use them for recording videos too. Isn't that awesome?
 
