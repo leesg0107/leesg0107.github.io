@@ -6,7 +6,7 @@ tags: [soltrone, drone, raspberry-pi, ardupilot, mavlink, ros2, hardware, dev-lo
 author: solgyu
 category: journey
 subcategory: dev
-thumbnail-img: /assets/img/thumb.png
+thumbnail-img: "/assets/img/cards/soltrone-log3.jpg"
 ---
 
 I thought I had control because the desktop could ping the Pi’s web server. Turns out that’s like waving at the tower and calling it flying. The FC didn’t care about my browser; the link to the actual controller wasn’t there yet. Mission Planner wouldn’t ARM either, which sent me spelunking through parameters and firmware flavors.

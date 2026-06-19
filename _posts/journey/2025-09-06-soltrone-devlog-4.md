@@ -6,7 +6,7 @@ tags: [soltrone, drone, raspberry-pi, ardupilot, mavlink, ros2, hardware, dev-lo
 author: solgyu
 category: journey
 subcategory: dev
-thumbnail-img: /assets/img/thumb.png
+thumbnail-img: "/assets/img/cards/soltrone-log4-prop.jpg"
 ---
 
 I finally got the “no app needed, just a device and a browser” control working. That part was great. The part where I tested it in my living room was not. A brief wobble, a surge, and one prop came back looking like it had a meeting with a soldering iron. Lesson delivered, with smell.
