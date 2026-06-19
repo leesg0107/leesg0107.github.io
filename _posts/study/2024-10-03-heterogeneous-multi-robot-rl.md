@@ -4,7 +4,7 @@ title: Heterogeneous Multi-Robot Reinforcement Learning
 subtitle: Model Structure Study #1 - HetGPPO vs GPPO
 thumbnail-img: /assets/img/GPPO_HetGPPPO.png
 tags: [MARL, GNN, heterogeneous-systems, multi-robot, reinforcement-learning]
-author: Matteo Bettini, Ajay Shankar and Amanda Prorok 
+author: solgyu
 category: study
 mathjax: true
 ---
