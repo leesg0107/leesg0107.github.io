@@ -19,21 +19,21 @@ What I ultimately want to build is a world where **anyone can operate a team of 
 
 ### 🤖 What I've Built & What I'm Building
 
-**[Herbot]({% post_url project/2025-11-19-herbot %})** — A plant-care robot running YOLO on a Raspberry Pi 5 to tell healthy leaves from rotten ones and prune them in real time. My first experience deploying perception models on edge devices for physical action.
+**[Herbot]({% post_url project/2025-11-19-herbot %})** — A plant-care robot that runs vision models on a resource-constrained edge device to identify the herb and catch pests and disease, then act on what it sees. The point wasn't another smart farm that only *monitors*—it was building the mechanism to physically tend the plant, right down to individual leaves.
 
-**[Agent Mcqueen]({% post_url project/2025-11-22-agent-mcqueen %})** — An autonomous racing agent trained with PPO and curriculum learning. No classical control algorithms—the agent learns to complete laps and even overtake opponents purely through RL in the F1tenth simulator.
+**[Agent Mcqueen]({% post_url project/2025-11-22-agent-mcqueen %})** — An autonomous racing agent trained with PPO and curriculum learning in the F1tenth simulator—no classical control. It learns to complete laps purely through RL, and to teach overtaking I froze the opponent agent and trained a *residual* policy on top of the expert, so it could learn to pass without unlearning how to drive.
 
 **[Soltrone]({% post_url project/2026-01-10-soltrone_v2 %})** — A drone built from scratch—frame, electronics, flight controller—with successful flight tests. Understanding a drone from the hardware up informs every aerial project that followed.
 
-**[TALON]({% post_url project/2026-04-26-TALON %})** *(in progress)* — Drone landing gear is dead weight after takeoff. TALON reimagines it as a functional gripper, letting a drone grasp and transport boxes mid-flight. Trained with PPO, SAC, and curriculum learning to handle the coupled dynamics of flight and manipulation.
+**[TALON]({% post_url project/2026-04-26-TALON %})** — Drone landing gear is dead weight after takeoff; TALON reimagines it as a functional gripper so a drone can grasp and transport a box mid-flight. The full mission runs end-to-end through four phases—approach → dock → climb → delivery. Approach and delivery are learned with PPO; for docking I first tried RL, and when it failed I used a quantitative analysis of *why* it failed to design a PID controller that reliably secures the grasp.
 
-**GarageNet** *(in progress)* — A system where individual robots and a central LLM work as one team, so anyone can operate a robotic system as intuitively as a chat interface. Currently focused on drones: [semantic VSLAM]({% post_url journey/2025-12-30-semantic_vslam %}) for environmental mapping, with on-device inference enabling autonomous reasoning and execution at the edge.
+**GarageNet** *(in progress)* — A system where individual robots and a central LLM work as one team, so anyone can operate a whole fleet as intuitively as a chat. The heart of it is cooperation and communication between robots; it's still early, and right now I'm focused on making that communication flow smoothly across the system.
 
 Each project pushed me onto a different platform and a different problem—from ground-based manipulation to aerial dynamics to multi-robot orchestration. That progression wasn't planned, but looking back it traces a clear path toward my vision: **diverse robots, unified intelligence**.
 
 ### 🌟 Who Am I
 
-I thrive on **new challenges and creative problem-solving**. When I face a problem no one has solved before, I don't look for a safe path—I ask a new question. *What if we approached it from a completely different angle?* That instinct to reframe and reimagine is what drives my best work.
+I thrive on **new challenges and creative problem-solving**. When I take on a problem I haven't faced before, I don't reach for the safe path—I ask a new question: *what if we approached it from a completely different angle?* I genuinely enjoy the act of solving problems, and that instinct to reframe is what drives my best work.
 
 I also value **teamwork** deeply. Serving in the military and leading a football team as club president taught me one thing clearly: when every member shares **a single, common goal**, the synergy is extraordinary. The best teammate, I believe, is someone who **walks alongside you**—not ahead, not behind, but right next to you, moving toward the same destination.
 
