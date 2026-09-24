@@ -11,3 +11,6 @@ ehthumbs.db
 Gemfile.lock
 
 beautiful-jekyll-theme-*.gem
+
+# reference documents kept locally only, never published (see git history purge, 2026-09-17)
+*.pdf
