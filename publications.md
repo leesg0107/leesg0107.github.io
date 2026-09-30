@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Publications
-subtitle: Peer-reviewed papers
 permalink: /publications/
 ---
 
