@@ -747,6 +747,55 @@ a:focus, button:focus {
   margin-bottom: 16px;
 }
 
+/* Publications */
+.pub-list {
+  padding-left: 22px;
+  margin: 0;
+}
+
+.pub-list li {
+  margin-bottom: 22px;
+  line-height: 1.55;
+}
+
+.pub-list li:last-child {
+  margin-bottom: 0;
+}
+
+.pub-title {
+  display: block;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.pub-meta {
+  display: block;
+  font-size: 0.92rem;
+  color: #666;
+  margin-top: 2px;
+}
+
+.pub-abstract {
+  display: block;
+  font-size: 0.95rem;
+  color: #555;
+  margin-top: 8px;
+}
+
+.pub-link {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #000;
+  text-decoration: none;
+  border-bottom: 1px solid #ccc;
+}
+
+.pub-link:hover {
+  border-bottom-color: #000;
+}
+
 /* Project showcase grid */
 .project-grid {
   display: grid;
