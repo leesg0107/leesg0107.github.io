@@ -762,29 +762,18 @@ a:focus, button:focus {
   margin-bottom: 0;
 }
 
-.pub-title {
+.pub-cite {
   display: block;
-  font-weight: 600;
-  color: #1a1a1a;
+  color: #333;
 }
 
-.pub-meta {
-  display: block;
-  font-size: 0.92rem;
-  color: #666;
-  margin-top: 2px;
-}
-
-.pub-abstract {
-  display: block;
-  font-size: 0.95rem;
-  color: #555;
-  margin-top: 8px;
+.pub-cite strong {
+  color: #000;
 }
 
 .pub-link {
   display: inline-block;
-  margin-top: 8px;
+  margin: 6px 14px 0 0;
   font-size: 0.9rem;
   font-weight: 600;
   color: #000;
